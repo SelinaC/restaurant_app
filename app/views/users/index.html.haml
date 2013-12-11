@@ -1,1 +1,9 @@
 %p Reviewers - Under construction
+
+- @users.each do |user|
+  %ul
+    %li
+      %h4= link_to(user.username, user_path(user))
+      %p= user.first_name
+
+

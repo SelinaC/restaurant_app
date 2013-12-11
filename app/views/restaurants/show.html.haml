@@ -1,1 +1,14 @@
-%p Under construction
+%h4= @restaurant.name
+%p= @restaurant.address1
+%p= @restaurant.address2
+%p= @restaurant.town
+%p= @restaurant.postcode
+%p= @restaurant.cuisine
+%p= @restaurant.hygiene_rating
+
+- @restaurant.reviews.order('created_at DESC').each do |review|
+  %h4
+    = review.user.username
+    %p
+      = review.title
+      = review.body

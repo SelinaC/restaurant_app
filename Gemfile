@@ -25,6 +25,7 @@ gem 'devise'
 # gem 'will_paginate', '~> 3.0'
 # gem 'kaminari'
 gem 'factual-api'
+# paper trail - check it out!
 
 
 # Gems used only for assets and not required

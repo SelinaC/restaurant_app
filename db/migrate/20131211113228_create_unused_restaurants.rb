@@ -1,7 +1,6 @@
-class CreateRestaurants < ActiveRecord::Migration
-
+class CreateUnusedRestaurants < ActiveRecord::Migration
   def change
-    create_table :restaurants do |t|
+    create_table :unused_restaurants do |t|
       t.string :name
       t.string :address1
       t.string :address2
@@ -18,10 +17,8 @@ class CreateRestaurants < ActiveRecord::Migration
       t.date :hygiene_rating_date
       t.decimal :longitude
       t.decimal :latitude
-      t.string :factual_id
 
       t.timestamps
     end
   end
-
 end

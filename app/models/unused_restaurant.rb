@@ -1,4 +1,4 @@
-class Restaurant < ActiveRecord::Base
+class UnusedRestaurant < ActiveRecord::Base
 
   attr_accessible
 
