@@ -3,15 +3,29 @@ require 'factual'
 module FactualData
 
   def self.get_data_by_name
-    name_array = [ "Dishoom", "Maze", "Zizzi", "Mamuska!", "Tas Restaurant", "Zakudia", "Hiba Restaurant", "El Vergel"]
+    name_array = [ "Dishoom", "Maze", "Zizzi", "Mamuska!", "Tas", "Zakudia", "Hiba", "Vergel"]
     factual = Factual.new(ENV["FACTUAL_DATA_KEY"], ENV["FACTUAL_DATA_SECRET"])
     @@name_query_result = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$includes_any" => name_array}}]}).rows
+    @@name_match_1 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Chez Nico Restaurants"}}]}).rows
+    @@name_match_2 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Quadrato at the Four Seasons Hotel London"}}]}).rows
+    @@name_match_3 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Claridge's"}}]}).rows
+    @@name_match_4 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Roux at the Landau"}}]}).rows
+    @@name_match_5 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "The Ritz London"}}]}).rows
+    @@name_match_6 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "The Savoy Grill"}}]}).rows
+    @@name_match_7 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Gordon Ramsay Holdings"}}]}).rows
+    @@name_match_8 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Pearl Restaurant and Bar"}}]}).rows
+    @@name_match_9 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "The Chancery"}}]}).rows
+    @@name_match_10 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "The Soho Hotel"}}]}).rows
+    @@name_match_11 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "The Square"}}]}).rows
+    # @@name_query_result << @@name_match_1
+    # puts @@name_match_1.class
   end
 
   def self.get_data_by_local_authority
-    local_authority_array = ["southwark"]
+    local_authority_array = ["southwark", "westminster"]
     factual = Factual.new(ENV["FACTUAL_DATA_KEY"], ENV["FACTUAL_DATA_SECRET"])
     @@local_authority_query_result = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"neighborhood" => {"$includes_any" => local_authority_array}}]}).rows
+    # puts @@local_authority_query_result.class
   end
 
   def self.assign_attributes(rest)
@@ -63,23 +77,88 @@ module FactualData
       # with the same factual_id as the element we are evaluating
       # then skip (do not add to db)
       # else assign_attributes
+
       if not record_exists?(rest)
         assign_attributes(rest)
       end
     end
 
-    # @@name_query_result.each do |rest|
+    @@name_query_result.each do |rest|
     #    # if an entry exists in the db
     #   # with the same factual_id as the element we are evaluating
     #   # then skip (do not add to db)
     #   # else assign_attributes
-        # if not record_exists?(rest)
-        #   assign_attributes(rest)
-        # end
-    # end
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
 
+    @@name_match_1.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_2.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_3.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_4.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_5.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_6.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_7.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_8.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_9.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_10.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_11.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
   end
-
 end
 
 # SELECT * FROM Restaurants WHERE factual_id=939bdf43-f789-475c-a857-1057451e69e9;

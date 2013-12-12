@@ -19,8 +19,9 @@ ActiveRecord::Schema.define(:version => 20131211113228) do
     t.string   "employed_from"
     t.string   "employed_to"
     t.string   "job_title"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.text     "job_description"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "restaurants", :force => true do |t|

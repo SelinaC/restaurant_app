@@ -4,3 +4,17 @@
 %p= @user.first_name + " " + @user.last_name
 
 
+- @user.jobs.order('employed_to DESC').each do |job|
+  %ul
+    %li
+      %h4
+        = job.job_title
+        - if job.restaurant.nil?
+        - else
+          = link_to job.restaurant.name, job.restaurant
+      %p
+        = job.employed_from
+        = job.employed_to
+      %p
+        = job.job_description
+

@@ -8,6 +8,7 @@ class CreateJobs < ActiveRecord::Migration
       t.string :employed_from
       t.string :employed_to
       t.string :job_title
+      t.text :job_description
 
       t.timestamps
     end

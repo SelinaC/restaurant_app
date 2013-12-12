@@ -7,6 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 FactualData.get_data_by_local_authority
+FactualData.get_data_by_name
 FactualData.save_to_db
 FoodHygieneData.get_hygiene_rating
 

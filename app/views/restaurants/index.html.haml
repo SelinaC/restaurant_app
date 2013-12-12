@@ -1,5 +1,7 @@
 %p Restaurants
 
+= @restaurants.count.to_s + " Restaurants"
+
 - @restaurants.each do |rest|
   %ul
     %li
@@ -8,3 +10,4 @@
       %p= rest.postcode
       %p= rest.cuisine
       %p= rest.hygiene_rating
+      %p= rest.id

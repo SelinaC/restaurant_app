@@ -8,7 +8,22 @@
 
 - @restaurant.reviews.order('created_at DESC').each do |review|
   %h4
+    = review.title
+  %p
+    = review.body
+    %br/
     = review.user.username
-    %p
-      = review.title
-      = review.body
+    = time_ago_in_words(review.created_at) + " ago"
+
+- @restaurant.users.order('created_at DESC').each do |user|
+  %ul
+    %li
+      %h4
+        = link_to user.username, user
+        %br/
+        = user.jobs.where(restaurant_id: @restaurant.id).first.job_title
+        (from
+        = user.jobs.where(restaurant_id: @restaurant.id).first.employed_from
+        to
+        = user.jobs.where(restaurant_id: @restaurant.id).first.employed_to + ")"
+
