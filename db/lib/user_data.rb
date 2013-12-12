@@ -123,6 +123,13 @@ module UserData
 
     # Michael Davies, head sommelier, pearl
     # armand sablon
+    # Jacques Beauregard, cinnamon club
+    # Smiljan Galic, hakkasan
+    # Balint Haui, galvin bistrot de luxe
+    # Frederic TANOH, head sommelier, pearl
+    # fabrice cune, l'escargot
+    # Daniel Doherty, duck and waffle
+    # Jens Fölkel, previously at axis
 
   end
 end
