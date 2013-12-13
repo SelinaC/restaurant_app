@@ -3,11 +3,18 @@
 - @users.each do |user|
   %ul
     %li
-      %h4= link_to(user.username, user_path(user))
-      %p= user.first_name + " " + user.last_name
-      - if user.jobs.empty?
+      - if user.username.nil?
+        %h4= link_to(user.username, user_path(user))
       - else
-        = user.jobs.order('employed_to DESC').first.job_title
-        - if user.jobs.order('employed_to DESC').first.restaurant.nil?
+        %h4= link_to(user.username, user_path(user))
+        - if user.first_name.nil?
+        - elsif user.last_name.nil?
+          %p= user.first_name
+        -else
+          %p= user.first_name + " " + user.last_name
+        - if user.jobs.empty?
         - else
-          = link_to user.jobs.order('employed_to DESC').first.restaurant.name, user.jobs.order('employed_to DESC').first.restaurant
+          = user.jobs.order('employed_to DESC').first.job_title
+          - if user.jobs.order('employed_to DESC').first.restaurant.nil?
+          - else
+            = link_to user.jobs.order('employed_to DESC').first.restaurant.name, user.jobs.order('employed_to DESC').first.restaurant

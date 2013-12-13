@@ -14,6 +14,8 @@
     %br/
     = review.user.username
     = time_ago_in_words(review.created_at) + " ago"
+  %p
+    = link_to "Edit Review", edit_review_path(review)
 
 - @restaurant.users.order('created_at DESC').each do |user|
   %ul
@@ -26,4 +28,5 @@
         = user.jobs.where(restaurant_id: @restaurant.id).first.employed_from
         to
         = user.jobs.where(restaurant_id: @restaurant.id).first.employed_to + ")"
+
 

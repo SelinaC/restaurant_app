@@ -1,7 +1,16 @@
 %p User Profile - under construction
 
-%h4= @user.username
-%p= @user.first_name + " " + @user.last_name
+%p= link_to "Edit Profile", edit_user_registration_path
+
+- if @user.username.nil?
+- else
+  %h4= @user.username
+
+- if @user.first_name.nil?
+- elsif @user.last_name.nil?
+  %p= @user.first_name
+- else
+  %p= @user.first_name + " " + @user.last_name
 
 
 - @user.jobs.order('employed_to DESC').each do |job|

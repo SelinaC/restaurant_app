@@ -1,9 +1,11 @@
 RestaurantApp::Application.routes.draw do
+
+
   devise_for :users, :controllers => {:registrations => 'users', omniauth_callbacks: 'omniauth_callbacks'}
 
   devise_scope :user do
     #get 'users' => 'users#index'
-    resources :users, only: [:index, :edit ,:update, :show]
+    resources :users, only: [:index, :show]
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.
