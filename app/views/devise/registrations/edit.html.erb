@@ -43,7 +43,7 @@
     <%= jobs_sub_form.text_field :employed_to, :autofocus => true %><br />
 
     <%= jobs_sub_form.label :restaurant_id %>
-    <%= jobs_sub_form.select :restaurant_id, Restaurant.all, :prompt => true %><br />
+    <%= jobs_sub_form.select :restaurant_id, restaurants_for_select, :prompt => true %><br />
   <% end %>
   </div>
 
