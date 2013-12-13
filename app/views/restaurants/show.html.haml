@@ -6,16 +6,34 @@
 %p= @restaurant.cuisine
 %p= @restaurant.hygiene_rating
 
+Write a review:
+= form_for(@review) do |f|
+
+  = hidden_field_tag :restaurant_id, @restaurant.id
+  = f.label :title
+  = f.text_field :title
+  %br/
+  = f.label :body
+  = f.text_area :body
+  %br/
+  = f.submit
+
 - @restaurant.reviews.order('created_at DESC').each do |review|
   %h4
     = review.title
   %p
     = review.body
     %br/
-    = review.user.username
+    - if review.user.nil?
+      written by unknown user
+    - else
+      written by
+      = link_to review.user.username, review.user
     = time_ago_in_words(review.created_at) + " ago"
   %p
     = link_to "Edit Review", edit_review_path(review)
+    = link_to "Delete Review", review, method: :delete
+
 
 - @restaurant.users.order('created_at DESC').each do |user|
   %ul

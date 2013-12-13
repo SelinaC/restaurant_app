@@ -1,7 +1,7 @@
 class UsersController < Devise::RegistrationsController
 
   before_filter :repair_nested_params
-  before_filter :extract_job_params, only: [:create, :update]
+  before_filter :extract_job_params, only: [:create, :update, :destroy]
 
   def index
     @users = User.all
@@ -21,6 +21,11 @@ class UsersController < Devise::RegistrationsController
       job.update_attributes job_params
     end
   end
+
+  # def delete_job
+  #   binding.pry
+  #   @user = current_user
+  # end
 
 private
 
