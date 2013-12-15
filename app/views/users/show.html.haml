@@ -3,8 +3,10 @@
 %p= link_to "Edit Profile", edit_user_registration_path
 
 - if @user.username.nil?
+  %p= image_tag @user.image_url(:thumb)
 - else
   %h4= @user.username
+  %p= image_tag @user.image_url(:thumb)
 
 - if @user.first_name.nil?
 - elsif @user.last_name.nil?
@@ -27,3 +29,4 @@
       %p
         = job.job_description
 
+= link_to "Back", "/users"

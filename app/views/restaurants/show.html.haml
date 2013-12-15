@@ -1,4 +1,5 @@
 %h4= @restaurant.name
+%p= image_tag @restaurant.image_url(:thumb)
 %p= @restaurant.address1
 %p= @restaurant.address2
 %p= @restaurant.town
@@ -47,4 +48,4 @@ Write a review:
         to
         = user.jobs.where(restaurant_id: @restaurant.id).first.employed_to + ")"
 
-
+= link_to "Back", :back

@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   has_many :restaurants, through: :jobs
   has_many :reviews
 
+  mount_uploader :image, UserImageUploader
 
   accepts_nested_attributes_for :jobs
 
