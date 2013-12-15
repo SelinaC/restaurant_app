@@ -21,6 +21,9 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :jobs
 
+  def has_role?(r)
+    self.role == r.to_s
+  end
 
   def update_without_password(params={})
     super(params.delete(:current_password))
@@ -29,3 +32,10 @@ class User < ActiveRecord::Base
 end
 
 # role - allow mass assignment?
+
+ # after_create :default_role
+
+ #  private
+ #  def default_role
+ #    self.roles << Role.where(:name => 'User').first
+ #  end

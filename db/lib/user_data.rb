@@ -7,6 +7,7 @@ module UserData
     user1.last_name = "Gill"
     user1.email = 'aagill@aagill.com'
     user1.password = "password"
+    user1.role = "professional"
     user1.save!
 
     user2 = User.new
@@ -15,6 +16,7 @@ module UserData
     user2.last_name = "Lawson"
     user2.email = 'nigella@nigella.com'
     user2.password = "password"
+    user2.role = "professional"
     user2.save!
 
     user3 = User.new
@@ -23,6 +25,7 @@ module UserData
     user3.last_name = "Tanaka"
     user3.email = 'jun@juntanaka.com'
     user3.password = "password"
+    user3.role = "professional"
     user3.save!
 
     user4 = User.new
@@ -31,6 +34,7 @@ module UserData
     user4.last_name = "Ottolenghi"
     user4.email = 'yotam@yotam.com'
     user4.password = "password"
+    user4.role = "professional"
     user4.save!
 
     user5 = User.new
@@ -39,6 +43,7 @@ module UserData
     user5.last_name = "Oliver"
     user5.email = 'jamie@jamieoliver.com'
     user5.password = "password"
+    user5.role = "professional"
     user5.save!
 
     user6 = User.new
@@ -47,6 +52,7 @@ module UserData
     user6.last_name = "Williams"
     user6.email = 'john@johnwilliams.com'
     user6.password = "password"
+    user6.role = "professional"
     user6.save!
 
     user7 = User.new
@@ -55,6 +61,7 @@ module UserData
     user7.last_name = "Brown"
     user7.email = 'jeremy@jeremybrown.com'
     user7.password = "password"
+    user7.role = "professional"
     user7.save!
 
     user8 = User.new
@@ -63,6 +70,7 @@ module UserData
     user8.last_name = "Johnson"
     user8.email = 'adam@adamjohnson.com'
     user8.password = "password"
+    user8.role = "professional"
     user8.save!
 
     user9 = User.new
@@ -71,6 +79,7 @@ module UserData
     user9.last_name = "Nail"
     user9.email = 'martyn@martynnail.com'
     user9.password = "password"
+    user9.role = "professional"
     user9.save!
 
     user10 = User.new
@@ -79,6 +88,7 @@ module UserData
     user10.last_name = "Turner"
     user10.email = 'andrew@andrewturner.com'
     user10.password = "password"
+    user10.role = "professional"
     user10.save!
 
     user11 = User.new
@@ -87,6 +97,7 @@ module UserData
     user11.last_name = "Ramsay"
     user11.email = 'gordon@gordonramsay.com'
     user11.password = "password"
+    user11.role = "professional"
     user11.save!
 
     user12 = User.new
@@ -95,6 +106,7 @@ module UserData
     user12.last_name = "Aikens"
     user12.email = 'tom@tomaikens.com'
     user12.password = "password"
+    user12.role = "professional"
     user12.save!
 
     user13 = User.new
@@ -103,6 +115,7 @@ module UserData
     user13.last_name = "Cook"
     user13.email = 'andy@andycook.com'
     user13.password = "password"
+    user13.role = "professional"
     user13.save!
 
     user14 = User.new
@@ -111,6 +124,7 @@ module UserData
     user14.last_name = "Nairn"
     user14.email = 'nick@nicknairn.com'
     user14.password = "password"
+    user14.role = "professional"
     user14.save!
 
     user15 = User.new
@@ -119,7 +133,17 @@ module UserData
     user15.last_name = "Christey-French"
     user15.email = 'simon@simonchristeyfrench.com'
     user15.password = "password"
+    user15.role = "professional"
     user15.save!
+
+    user16 = User.new
+    user16.username = "Foodie"
+    user16.first_name = "Foodie"
+    user16.last_name = ""
+    user16.email = 'foodie@foodie.com'
+    user16.password = "password"
+    user16.role = "foodie"
+    user16.save!
 
     # Michael Davies, head sommelier, pearl
     # armand sablon
