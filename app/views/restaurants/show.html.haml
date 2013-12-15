@@ -19,7 +19,7 @@ Write a review:
   %br/
   = f.submit
 
-- @restaurant.reviews.order('created_at DESC').each do |review|
+- @reviews.each do |review|
   %h4
     = review.title
   %p
@@ -36,7 +36,7 @@ Write a review:
     = link_to "Delete Review", review, method: :delete
 
 
-- @restaurant.users.order('created_at DESC').each do |user|
+- @users.each do |user|
   %ul
     %li
       %h4

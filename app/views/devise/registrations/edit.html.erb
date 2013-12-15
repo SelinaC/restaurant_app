@@ -39,10 +39,10 @@
     <%= jobs_sub_form.text_field :job_title, :autofocus => true %><br />
 
     <%= jobs_sub_form.label :employed_from %>
-    <%= jobs_sub_form.text_field :employed_from, :autofocus => true %><br />
+    <%= jobs_sub_form.date_select :employed_from, :order => [:day, :month, :year], :autofocus => true %><br />
 
     <%= jobs_sub_form.label :employed_to %>
-    <%= jobs_sub_form.text_field :employed_to, :autofocus => true %><br />
+    <%= jobs_sub_form.date_select :employed_to, :order => [:day, :month, :year], :autofocus => true %><br />
 
     <%= jobs_sub_form.label :restaurant_id %>
     <%= jobs_sub_form.select :restaurant_id, restaurants_for_select, :prompt => true %><br />

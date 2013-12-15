@@ -5,8 +5,8 @@ class CreateJobs < ActiveRecord::Migration
       t.belongs_to :user
       t.belongs_to :restaurant
 
-      t.string :employed_from
-      t.string :employed_to
+      t.datetime :employed_from
+      t.datetime :employed_to
       t.string :job_title
       t.text :job_description
 

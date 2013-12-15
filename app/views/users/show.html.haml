@@ -15,7 +15,7 @@
   %p= @user.first_name + " " + @user.last_name
 
 
-- @user.jobs.order('employed_to DESC').each do |job|
+- @jobs.each do |job|
   %ul
     %li
       %h4
@@ -24,8 +24,8 @@
         - else
           = link_to job.restaurant.name, job.restaurant
       %p
-        = job.employed_from
-        = job.employed_to
+        = job.employed_from.strftime("%B %-d, %Y")
+        = job.employed_to.strftime("%B %-d, %Y")
       %p
         = job.job_description
 

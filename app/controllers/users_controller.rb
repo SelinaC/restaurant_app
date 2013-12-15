@@ -10,6 +10,7 @@ class UsersController < Devise::RegistrationsController
 
   def show
     @user = User.find params[:id]
+    @jobs = @user.jobs.order('employed_to DESC')
   end
 
   def update
