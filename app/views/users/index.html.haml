@@ -1,24 +1,27 @@
 %p Reviewers - Under construction
 
-- @users.each do |user|
-  %ul
-    %li
-      - if user.username.nil?
-        %h4= link_to(user.username, user_path(user))
-        %p= image_tag rest.image_url(:thumb)
-      - else
-        %h4= link_to(user.username, user_path(user))
-        %p= image_tag user.image_url(:thumb)
+= will_paginate @users
 
-        - if user.first_name.nil?
-        - elsif user.last_name.nil?
-          %p= user.first_name
-        -else
-          %p= user.first_name + " " + user.last_name
-
-        - if user.jobs.empty?
+#pagination_table
+  - @users.each do |user|
+    %ul
+      %li
+        - if user.username.nil?
+          %h4= link_to(user.username, user_path(user))
+          %p= image_tag rest.image_url(:thumb)
         - else
-          = user.jobs.order('employed_to DESC').first.job_title
-          - if user.jobs.order('employed_to DESC').first.restaurant.nil?
+          %h4= link_to(user.username, user_path(user))
+          %p= image_tag user.image_url(:thumb)
+
+          - if user.first_name.nil?
+          - elsif user.last_name.nil?
+            %p= user.first_name
+          -else
+            %p= user.first_name + " " + user.last_name
+
+          - if user.jobs.empty?
           - else
-            = link_to user.jobs.order('employed_to DESC').first.restaurant.name, user.jobs.order('employed_to DESC').first.restaurant
+            = user.jobs.order('employed_to DESC').first.job_title
+            - if user.jobs.order('employed_to DESC').first.restaurant.nil?
+            - else
+              = link_to user.jobs.order('employed_to DESC').first.restaurant.name, user.jobs.order('employed_to DESC').first.restaurant

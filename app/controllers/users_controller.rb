@@ -1,10 +1,30 @@
+require 'will_paginate/collection'
+
 class UsersController < Devise::RegistrationsController
 
   before_filter :repair_nested_params
   before_filter :extract_job_params, only: [:create, :update, :destroy]
 
   def index
-    @users = User.all
+    # @users = User.all
+    page = params[:page] || 1
+    per_page = 5
+
+    # users = []
+    # all_users = User.all
+    # all_users.each do |user|
+    #   if user.role == "professional"
+    #     users << user
+    #   end
+    # end
+
+    @users = User.where(:role => "professional").paginate(page: page, per_page: per_page).order('last_name')
+
+    # @users = WillPaginate::Collection.create(page, per_page, values.length) do |pager|
+      # pager.replace values
+
+    # @users = users.paginate(page: page, per_page: per_page).order('last_name')
+    # @users, @alphaParams = User.where(:role => "professional").alpha_paginate(params[:letter]){|user| user.last_name}
     # must change to differentiate 'staff' users from 'foodie' users
   end
 

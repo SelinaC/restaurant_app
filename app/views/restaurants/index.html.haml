@@ -1,6 +1,7 @@
 %p Restaurants
 
-= @restaurants.count.to_s + " Restaurants"
+= will_paginate @restaurants
+/ = @restaurants.count.to_s + " Restaurants"
 
 - @restaurants.each do |rest|
   %ul

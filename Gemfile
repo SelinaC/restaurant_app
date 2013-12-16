@@ -22,8 +22,8 @@ gem 'cancan'
 # gem 'textacular', '~> 3.0'
 # gem 'thumbs_up'
 # gem 'koala'
-# gem 'will_paginate', '~> 3.0'
-# gem 'alphabetical_paginate'
+gem 'will_paginate', '~> 3.0'
+# gem 'alphabetical_paginate' # bad gem
 # gem 'kaminari'
 gem 'factual-api'
 # paper trail - check it out!
