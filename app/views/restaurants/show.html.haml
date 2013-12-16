@@ -7,17 +7,18 @@
 %p= @restaurant.cuisine
 %p= @restaurant.hygiene_rating
 
-Write a review:
-= form_for(@review) do |f|
+- if can? :create, @review
+  Write a review:
+  = form_for(@review) do |f|
 
-  = hidden_field_tag :restaurant_id, @restaurant.id
-  = f.label :title
-  = f.text_field :title
-  %br/
-  = f.label :body
-  = f.text_area :body
-  %br/
-  = f.submit
+    = hidden_field_tag :restaurant_id, @restaurant.id
+    = f.label :title
+    = f.text_field :title
+    %br/
+    = f.label :body
+    = f.text_area :body
+    %br/
+    = f.submit
 
 - @reviews.each do |review|
   %h4
@@ -32,8 +33,9 @@ Write a review:
       = link_to review.user.username, review.user
     = time_ago_in_words(review.created_at) + " ago"
   %p
-    = link_to "Edit Review", edit_review_path(review)
-    = link_to "Delete Review", review, method: :delete
+    - if review.user == current_user
+      = link_to "Edit Review", edit_review_path(review)
+      = link_to "Delete Review", review, method: :delete
 
 
 - @users.each do |user|
@@ -44,8 +46,8 @@ Write a review:
         %br/
         = user.jobs.where(restaurant_id: @restaurant.id).first.job_title
         (from
-        = user.jobs.where(restaurant_id: @restaurant.id).first.employed_from
+        = user.jobs.where(restaurant_id: @restaurant.id).first.employed_from.strftime("%B %-d, %Y")
         to
-        = user.jobs.where(restaurant_id: @restaurant.id).first.employed_to + ")"
+        = user.jobs.where(restaurant_id: @restaurant.id).first.employed_to.strftime("%B %-d, %Y") + ")"
 
-= link_to "Back", :back
+= link_to "Back to Restaurants", "/restaurants"

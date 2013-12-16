@@ -9,10 +9,10 @@ Add a New Job - Under Construction
   = f.text_area :job_description
   %br/
   = f.label :employed_from
-  = f.text_field :employed_from
+  = f.date_select :employed_from, :order => [:day, :month, :year]
   %br/
   = f.label :employed_to
-  = f.text_field :employed_to
+  = f.date_select :employed_to, :order => [:day, :month, :year]
   %br/
   = f.label :restaurant_id
   = f.select :restaurant_id, restaurants_for_select, :prompt => true

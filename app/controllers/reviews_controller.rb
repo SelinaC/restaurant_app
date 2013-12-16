@@ -29,6 +29,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     review = Review.find params[:id]
+    # need an alert "are you sure?" before delete
     review.delete
     redirect_to review.restaurant
   end

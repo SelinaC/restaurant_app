@@ -31,25 +31,33 @@
   <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
   <%= f.password_field :current_password %></div>
 
-  <div><%= link_to 'New Job', new_job_path %></div>
+  <div>
+    <% if resource.role == "foodie" %>
+    <% else %>
+      <%= link_to 'New Job', new_job_path %>
+    <% end %>
+  </div>
 
   <div>
-  <%= f.fields_for :jobs do |jobs_sub_form| %>
-    <%= jobs_sub_form.label :job_title %>
-    <%= jobs_sub_form.text_field :job_title, :autofocus => true %><br />
+    <% if resource.role == "foodie" %>
+    <% else %>
+      <%= f.fields_for :jobs do |jobs_sub_form| %>
+        <%= jobs_sub_form.label :job_title %>
+        <%= jobs_sub_form.text_field :job_title, :autofocus => true %><br />
 
-    <%= jobs_sub_form.label :employed_from %>
-    <%= jobs_sub_form.date_select :employed_from, :order => [:day, :month, :year], :autofocus => true %><br />
+        <%= jobs_sub_form.label :employed_from %>
+        <%= jobs_sub_form.date_select :employed_from, :order => [:day, :month, :year], :autofocus => true %><br />
 
-    <%= jobs_sub_form.label :employed_to %>
-    <%= jobs_sub_form.date_select :employed_to, :order => [:day, :month, :year], :autofocus => true %><br />
+        <%= jobs_sub_form.label :employed_to %>
+        <%= jobs_sub_form.date_select :employed_to, :order => [:day, :month, :year], :autofocus => true %><br />
 
-    <%= jobs_sub_form.label :restaurant_id %>
-    <%= jobs_sub_form.select :restaurant_id, restaurants_for_select, :prompt => true %><br />
+        <%= jobs_sub_form.label :restaurant_id %>
+        <%= jobs_sub_form.select :restaurant_id, restaurants_for_select, :prompt => true %><br />
 
-    <%= jobs_sub_form.hidden_field :id, :autofocus => true %><br />
+        <%= jobs_sub_form.hidden_field :id, :autofocus => true %><br />
 
-  <% end %>
+      <% end %>
+    <% end %>
   </div>
 
   <div><%= f.submit "Update" %></div>

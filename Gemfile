@@ -23,6 +23,7 @@ gem 'cancan'
 # gem 'thumbs_up'
 # gem 'koala'
 # gem 'will_paginate', '~> 3.0'
+# gem 'alphabetical_paginate'
 # gem 'kaminari'
 gem 'factual-api'
 # paper trail - check it out!

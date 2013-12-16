@@ -1,6 +1,7 @@
 %p User Profile - under construction
 
-%p= link_to "Edit Profile", edit_user_registration_path
+- if @user == current_user
+  %p= link_to "Edit Profile", edit_user_registration_path
 
 - if @user.username.nil?
   %p= image_tag @user.image_url(:thumb)

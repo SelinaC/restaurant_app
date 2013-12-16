@@ -145,6 +145,15 @@ module UserData
     user16.role = "foodie"
     user16.save!
 
+    user17 = User.new
+    user17.username = "Admin"
+    user17.first_name = "Administrator"
+    user17.last_name = ""
+    user17.email = 'admin@cookedup.com'
+    user17.password = "password"
+    user17.role = "admin"
+    user17.save!
+
     # Michael Davies, head sommelier, pearl
     # armand sablon
     # Jacques Beauregard, cinnamon club
