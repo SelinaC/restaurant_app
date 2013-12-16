@@ -1,0 +1,11 @@
+%h2 Search results
+%ul
+  - @search.each do |search_result|
+    %li
+      - case search_result
+        - when User
+          = @search.first.username
+        - when Restaurant
+          = @search.first.name
+        - else
+          = search_result.job_title

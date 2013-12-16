@@ -13,9 +13,9 @@ class User < ActiveRecord::Base
 
   attr_accessible :username, :first_name, :last_name, :email, :image, :role, :password, :password_confirmation, :remember_me
 
-  has_many :jobs
+  has_many :jobs, dependent: :destroy
   has_many :restaurants, through: :jobs
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   mount_uploader :image, UserImageUploader
 

@@ -1,7 +1,8 @@
 %p User Profile - under construction
 
 - if @user == current_user
-  %p= link_to "Edit Profile", edit_user_registration_path
+  = link_to "Edit Profile", edit_user_registration_path
+  = link_to "Change Password", "change_password"
 
 - if @user.username.nil?
   %p= image_tag @user.image_url(:thumb)
@@ -29,5 +30,8 @@
         = job.employed_to.strftime("%B %-d, %Y")
       %p
         = job.job_description
+      %p
+        - if @user == current_user
+          = link_to "Delete Job", "job#destroy"
 
 = link_to "Back", "/users"

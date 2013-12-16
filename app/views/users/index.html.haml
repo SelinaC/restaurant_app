@@ -1,4 +1,4 @@
-%p Reviewers - Under construction
+%p The Professionals
 
 = will_paginate @users
 
@@ -21,7 +21,7 @@
 
           - if user.jobs.empty?
           - else
-            = user.jobs.order('employed_to DESC').first.job_title
-            - if user.jobs.order('employed_to DESC').first.restaurant.nil?
+            = user.jobs.first.job_title
+            - if user.jobs.first.restaurant.nil?
             - else
-              = link_to user.jobs.order('employed_to DESC').first.restaurant.name, user.jobs.order('employed_to DESC').first.restaurant
+              = link_to user.jobs.first.restaurant.name, user.jobs.first.restaurant

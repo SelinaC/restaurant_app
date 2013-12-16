@@ -12,6 +12,7 @@ class RestaurantsController < ApplicationController
     @review = Review.new
     @reviews = @restaurant.reviews.order('created_at DESC')
     @users = @restaurant.users.order('created_at DESC')
+    @users.uniq!
   end
 
 end

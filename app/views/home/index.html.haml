@@ -6,21 +6,7 @@
   %body
     #container
       %header
-      Homepage - Under Construction
-      %br
-      - if user_signed_in?
-        = link_to "Your Profile", current_user
-        = link_to 'Logout',  destroy_user_session_path, method: :delete
-      - else
-        = link_to 'Sign up', new_user_registration_path
-        = link_to 'Login', new_user_session_path
-      %br
-      - if user_signed_in?
-        = link_to "Browse Restaurants", restaurants_path
-        = link_to "See the Professionals", users_path
-      #main
-
-      %footer To Be Updated
+      %footer
 
   = notice
   = alert

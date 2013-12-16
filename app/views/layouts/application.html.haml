@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %title CookedUp!
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    = form_tag searches_path do
+      = label_tag :search
+      = text_field_tag :query
+      = button_tag do
+        = image_tag "/assets/search-button-without-text.svg", width: 30
+    #container
+      %br
+      - if user_signed_in?
+        = link_to "Your Profile", current_user
+        = link_to 'Logout',  destroy_user_session_path, method: :delete
+      - else
+        = link_to 'Sign up', new_user_registration_path
+        = link_to 'Login', new_user_session_path
+      %br
+      - if user_signed_in?
+        = link_to "Browse Restaurants", restaurants_path
+        = link_to "See the Professionals", users_path
+      #main
+    \#{yield}

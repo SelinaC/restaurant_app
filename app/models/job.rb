@@ -5,6 +5,7 @@ class Job < ActiveRecord::Base
   belongs_to :user
   belongs_to :restaurant
 
+  default_scope -> { order("employed_to DESC")}
 end
 
 # :user_id - mass assignment? or set to only current user. do with cancan?

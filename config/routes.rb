@@ -5,7 +5,11 @@ RestaurantApp::Application.routes.draw do
 
   devise_scope :user do
     #get 'users' => 'users#index'
-    resources :users, only: [:index, :show]
+    resources :users, only: [:index, :show] do
+      collection do
+        get "change_password", to: "users#change_password"
+      end
+    end
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -13,6 +17,8 @@ RestaurantApp::Application.routes.draw do
   resources :restaurants
   resources :reviews
   resources :jobs, only: [:new, :destroy, :create]
+  resources :searches, only: [:create]
+
 
   root :to => 'home#index'
   # The priority is based upon order of creation:

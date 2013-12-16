@@ -34,13 +34,17 @@ class UsersController < Devise::RegistrationsController
   end
 
   def update
-    super
+    # super
     @user = current_user
+    @user.update_attributes params[:user]
+
     @jobs ||= []
     @jobs.each do |job_params|
       job = Job.find job_params[:id]
       job.update_attributes job_params
     end
+
+    redirect_to @user
   end
 
   # def delete_job
