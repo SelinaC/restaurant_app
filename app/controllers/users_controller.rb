@@ -2,6 +2,7 @@ require 'will_paginate/collection'
 
 class UsersController < Devise::RegistrationsController
 
+  before_filter :authenticate_user!, except: [:index, :show]
   before_filter :repair_nested_params
   before_filter :extract_job_params, only: [:create, :update, :destroy]
 

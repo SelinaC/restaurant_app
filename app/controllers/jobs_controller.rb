@@ -1,5 +1,7 @@
 class JobsController < ApplicationController
 
+before_filter :authenticate_user!, except: [:index, :show]
+
   def new
     @job = Job.new
   end
