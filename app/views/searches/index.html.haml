@@ -4,8 +4,8 @@
     %li
       - case search_result
         - when User
-          = @search.first.username
+          = link_to search_result.username, search_result
         - when Restaurant
-          = @search.first.name
-        - else
+          = link_to search_result.name, search_result
+        - when Job
           = search_result.job_title

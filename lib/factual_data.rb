@@ -49,7 +49,7 @@ module FactualData
     end
 
     new_rest.town = rest['post_town'].nil? ? "" : rest['post_town']
-    new_rest.towns = rest['neighborhood'].nil? ? "" : rest['neighborhood']
+    new_rest.towns = rest['neighborhood'].nil? ? "" : (rest['neighborhood']).to_s.scan(/(\w+)+/).flatten.join(" ")
     new_rest.postcode = rest['postcode'].nil? ? "" : rest['postcode']
     new_rest.norm_postcode = new_rest.postcode.gsub(' ', '').upcase
     new_rest.phone = rest['tel'].nil? ?  "" : rest['tel']
@@ -57,7 +57,7 @@ module FactualData
     new_rest.longitude = rest['longitude'].nil? ? "" : rest['longitude']
     new_rest.email = rest['email'].nil? ? "" : rest['website']
     new_rest.website = rest['website'].nil? ? "" : rest['website']
-    new_rest.cuisine = rest['cuisine'].nil? ? "" : rest['cuisine']
+    new_rest.cuisine = rest['cuisine'].nil? ? "" : rest['cuisine'].to_s.scan(/(\w+)+/).flatten.join(" ")
     new_rest.factual_id = rest['factual_id']
     new_rest.save!
   end
