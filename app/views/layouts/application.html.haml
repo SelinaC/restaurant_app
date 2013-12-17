@@ -17,7 +17,7 @@
             %input#saveForm.search-button.submit{name: "saveForm", src: "/assets/search-button-without-text.svg", type: "image", width: 30}
 
       .nav-links
-        .centered
+        .nav-right
           - if user_signed_in?
             = link_to "Your Profile", current_user
             = link_to 'Logout',  destroy_user_session_path, method: :delete

@@ -3,8 +3,8 @@
   - if @user.username.nil?
     %p= image_tag @user.image_url(:thumb)
   - else
-    %h4= @user.username
     %p= image_tag @user.image_url(:thumb)
+    %h4= @user.username
 
   - if @user == current_user
     = link_to "Edit Profile", edit_user_registration_path

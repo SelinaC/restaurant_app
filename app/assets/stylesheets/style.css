@@ -9,6 +9,7 @@ body {
 
 .container {
   margin-left: 2em;
+  margin-top: 3em;
 }
 
 /** NAV*/
@@ -23,7 +24,7 @@ body {
   top: 0;
 }
 
-.centered {
+.nav-right {
   position: fixed;
   right: 5%;
   margin-top: 1em;
@@ -95,11 +96,16 @@ body {
 .form-check-box {
 }
 
-.form-text-input-field {
+.form-text-input {
+  padding-bottom: 1em;
+  size: 30;
 }
 
 .submit-button{
-
+  padding-bottom: 1em;
+  text-align: left;
+  width: 45em;
+  border-radius: 1px;
 }
 
 .form-content {
