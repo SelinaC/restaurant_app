@@ -1,37 +1,37 @@
-%p User Profile - under construction
+.container
 
-- if @user == current_user
-  = link_to "Edit Profile", edit_user_registration_path
-  = link_to "Change Password", "change_password"
+  - if @user.username.nil?
+    %p= image_tag @user.image_url(:thumb)
+  - else
+    %h4= @user.username
+    %p= image_tag @user.image_url(:thumb)
 
-- if @user.username.nil?
-  %p= image_tag @user.image_url(:thumb)
-- else
-  %h4= @user.username
-  %p= image_tag @user.image_url(:thumb)
+  - if @user == current_user
+    = link_to "Edit Profile", edit_user_registration_path
+    = link_to "Change Password", "change_password"
 
-- if @user.first_name.nil?
-- elsif @user.last_name.nil?
-  %p= @user.first_name
-- else
-  %p= @user.first_name + " " + @user.last_name
+  - if @user.first_name.nil?
+  - elsif @user.last_name.nil?
+    %p= @user.first_name
+  - else
+    %p= @user.first_name + " " + @user.last_name
 
 
-- @jobs.each do |job|
-  %ul
-    %li
-      %h4
-        = job.job_title
-        - if job.restaurant.nil?
-        - else
-          = link_to job.restaurant.name, job.restaurant
-      %p
-        = job.employed_from.strftime("%B %-d, %Y")
-        = job.employed_to.strftime("%B %-d, %Y")
-      %p
-        = job.job_description
-      %p
-        - if @user == current_user
-          = link_to "Delete Job", "job#destroy"
+  - @jobs.each do |job|
+    %ul
+      %li
+        %h4
+          = job.job_title
+          - if job.restaurant.nil?
+          - else
+            = link_to job.restaurant.name, job.restaurant
+        %p
+          = job.employed_from.strftime("%B %-d, %Y")
+          = job.employed_to.strftime("%B %-d, %Y")
+        %p
+          = job.job_description
+        %p
+          - if @user == current_user
+            = link_to "Delete Job", "job#destroy"
 
-= link_to "Back", "/users"
+  = link_to "Back", "/users"

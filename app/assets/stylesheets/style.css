@@ -1,5 +1,3 @@
-
-
 body {
   font-family: 'Volkhov', serif;
   letter-spacing: 0.1em;
@@ -9,15 +7,34 @@ body {
   background-color: #e5e5d7;
 }
 
+.container {
+  margin-left: 2em;
+}
+
+/** NAV*/
+
 .user-nav {
   height: 70px;
   background: #363e43;
   padding: auto 0;
-  position: fixed;
+  /*position: fixed;*/
   z-index: 2;
   width: 100%;
   top: 0;
 }
+
+.centered {
+  position: fixed;
+  right: 5%;
+  margin-top: 1em;
+}
+
+.browse {
+  position: fixed;
+  right: 5%;
+  margin-top: 3em;
+}
+
 
 .nav-links a {
   margin-left: 30px;
@@ -29,19 +46,41 @@ body {
 
 .nav-logo {
   display: inline-block;
-  padding-top: 15px;
+  margin-top: -2.5em;
+  margin-left: 2em;
 }
 
-.form-content {
-  padding: 1em 0;
-  padding-bottom: 2em;
+.search {
+  text-transform: uppercase;
+  color: white;
+  position: fixed;
+  left: 35%;
+  margin-right: 2em;
+  margin-top: 1em;
+  display: inline;
+}
+
+.search-box {
+  display: inline;
+  height: 30;
+  font-size: 30;
+  padding: 10px;
+}
+
+.search-button  {
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .user-form {
-    background-color: #e5e5d7;
-    text-align: left;
-    width: 20em;
-    border-radius: 1px;
+  padding: 1em 0;
+  padding-bottom: 2em;
+  margin-left: 2em;
+  background-color: #e5e5d7;
+  text-align: left;
+  width: 20em;
+  border-radius: 1px;
 }
 
 .form-heading {
@@ -62,6 +101,10 @@ body {
 .submit-button{
 
 }
+
+.form-content {
+}
+
 
 /*#f5f5dc
 logo-color:
