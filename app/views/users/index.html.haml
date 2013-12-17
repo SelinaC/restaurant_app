@@ -5,23 +5,22 @@
 #pagination_table
   - @users.each do |user|
     %ul
-      %li
-        - if user.username.nil?
-          %h4= link_to(user.username, user_path(user))
-          %p= image_tag rest.image_url(:thumb)
+      - if user.username.nil?
+        %p= image_tag rest.image_url(:thumb)
+        %h4= link_to(user.username, user_path(user))
+      - else
+        %p= image_tag user.image_url(:thumb)
+        %h4= link_to(user.username, user_path(user))
+
+        - if user.first_name.nil?
+        - elsif user.last_name.nil?
+          %p= user.first_name
+        -else
+          %p= user.first_name + " " + user.last_name
+
+        - if user.jobs.empty?
         - else
-          %h4= link_to(user.username, user_path(user))
-          %p= image_tag user.image_url(:thumb)
-
-          - if user.first_name.nil?
-          - elsif user.last_name.nil?
-            %p= user.first_name
-          -else
-            %p= user.first_name + " " + user.last_name
-
-          - if user.jobs.empty?
+          = user.jobs.first.job_title
+          - if user.jobs.first.restaurant.nil?
           - else
-            = user.jobs.first.job_title
-            - if user.jobs.first.restaurant.nil?
-            - else
-              = link_to user.jobs.first.restaurant.name, user.jobs.first.restaurant
+            = link_to user.jobs.first.restaurant.name, user.jobs.first.restaurant
