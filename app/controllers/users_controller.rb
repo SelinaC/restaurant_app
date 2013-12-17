@@ -53,6 +53,16 @@ class UsersController < Devise::RegistrationsController
   #   @user = current_user
   # end
 
+  def update_password
+    @user = current_user
+    @user.update_with_password params.slice(
+      :password,
+      :password_confirmation,
+      :current_password
+    )
+    redirect_to @user
+  end
+
 private
 
   def extract_job_params

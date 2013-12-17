@@ -8,6 +8,7 @@ RestaurantApp::Application.routes.draw do
     resources :users, only: [:index, :show] do
       collection do
         get "change_password", to: "users#change_password"
+        put "update_password", to: "users#update_password"
       end
     end
   end
