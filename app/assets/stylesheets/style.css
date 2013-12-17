@@ -1,3 +1,5 @@
+/** PAGE FORMATTING*/
+
 body {
   font-family: 'Volkhov', serif;
   letter-spacing: 0.1em;
@@ -5,37 +7,31 @@ body {
   font-weight: 400;
   font-size: 16px;
   background-color: #e5e5d7;
+  min-width: 995px;
+}
+
+.page {
+  min-width: 995px;
+  width:expression(document.body.clientWidth < 995? "995px": "auto" );
 }
 
 .container {
   margin-left: 2em;
   margin-top: 3em;
+  min-width: 1000px;
 }
 
 /** NAV*/
 
-.user-nav {
-  height: 70px;
+nav.nav-bar {
+  height: 7em;
   background: #363e43;
-  padding: auto 0;
+  padding: 20px 40px;
   /*position: fixed;*/
   z-index: 2;
   width: 100%;
   top: 0;
 }
-
-.nav-right {
-  position: fixed;
-  right: 5%;
-  margin-top: 1em;
-}
-
-.browse {
-  position: fixed;
-  right: 5%;
-  margin-top: 3em;
-}
-
 
 .nav-links a {
   margin-left: 30px;
@@ -43,6 +39,18 @@ body {
   text-transform: uppercase;
   font-size: 0.8em;
   text-decoration: none;
+}
+
+.nav-right {
+  position: absolute;
+  right: 5%;
+  margin-top: 1em;
+}
+
+.browse {
+  position: absolute;
+  right: 5%;
+  margin-top: 3em;
 }
 
 .nav-logo {
@@ -54,8 +62,8 @@ body {
 .search {
   text-transform: uppercase;
   color: white;
-  position: fixed;
-  left: 35%;
+  position: absolute;
+  left: 30%;
   margin-right: 2em;
   margin-top: 1em;
   display: inline;
@@ -69,10 +77,11 @@ body {
 }
 
 .search-button  {
-
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
+/** SIGNUP/LOGIN/CHANGE PASSWORD FORMS */
 
 .user-form {
   padding: 1em 0;
@@ -112,6 +121,68 @@ body {
 }
 
 
+/** USER SHOW */
+
+.user-container {
+  margin-left: 14em;
+  margin-top: -1em;
+}
+
+.user {
+  margin-left: -10px;
+  margin-right: -10px;
+  height: 17em;
+  background: white;
+  width: 66%;
+  border-bottom: ridge;
+}
+
+.user-img {
+  padding-left: 2em;
+}
+
+.job-left {
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+.job-right {
+  padding-right: 2em;
+  text-align: right;
+  margin-top: 1em;
+}
+
+.job {
+  margin-left: -10px;
+  margin-right: -10px;
+  background: white;
+  width: 66%;
+}
+
+.job-description {
+  margin-left: 15px;
+  margin-right: 15px;
+  padding-left: 2em;
+  padding-right: 2em;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 200;
+  margin-bottom: 1em;
+}
+
+.link-see-others {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+/*.restaurant-link a {
+  margin-left: 30px;
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  text-decoration: none;
+}*/
 /*#f5f5dc
 logo-color:
     color: rgba(210,113,26,0.64);*/

@@ -1,37 +1,51 @@
 .container
-
-  - if @user.username.nil?
-    %p= image_tag @user.image_url(:thumb)
-  - else
-    %p= image_tag @user.image_url(:thumb)
-    %h4= @user.username
-
-  - if @user == current_user
-    = link_to "Edit Profile", edit_user_registration_path
-    = link_to "Change Password", "change_password"
-
-  - if @user.first_name.nil?
-  - elsif @user.last_name.nil?
-    %p= @user.first_name
-  - else
-    %p= @user.first_name + " " + @user.last_name
-
-
-  - @jobs.each do |job|
-    %ul
-      %li
-        %h4
-          = job.job_title
-          - if job.restaurant.nil?
-          - else
-            = link_to job.restaurant.name, job.restaurant
-        %p
-          = job.employed_from.strftime("%B %-d, %Y")
-          = job.employed_to.strftime("%B %-d, %Y")
-        %p
-          = job.job_description
-        %p
+  .row
+    - if @user.username.nil?
+      .col-md-4
+      .col-md-8
+        %p= image_tag @user.image_url(:thumb)
+    - else
+      .col-md-4
+      .col-md-8.user
+        .col-md-6.user-img
+          %p= image_tag @user.image_url(:thumb)
+        .col-md-6
+          %h4= @user.username
           - if @user == current_user
-            = link_to "Delete Job", "job#destroy"
+            = link_to "Edit Profile", edit_user_registration_path
+            = link_to "Change Password", "change_password"
 
-  = link_to "Back", "/users"
+          - if @user.first_name.nil?
+          - elsif @user.last_name.nil?
+            %p= @user.first_name
+          - else
+            %p= @user.first_name + " " + @user.last_name
+
+  .row
+    .col-md-4
+    .col-md-8.job
+      - @jobs.each do |job|
+        .row.job-left
+          .col-md-6
+            %h4
+              = job.job_title
+              - if job.restaurant.nil?
+              - else
+                %p
+                = link_to job.restaurant.name, job.restaurant
+          .col-md-6.job-right
+            = job.employed_from.strftime("%b %Y")
+            = "-"
+            = job.employed_to.strftime("%b %Y")
+            %p
+            - if @user == current_user
+              = link_to "Delete Job", "job#destroy"
+        .row
+          - if job.job_description.nil?
+          - else
+            .job-description
+              = job.job_description
+      - if @jobs.empty?
+        .link-see-others
+          = link_to "See others", "/users"
+  %p

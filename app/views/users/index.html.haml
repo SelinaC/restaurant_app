@@ -6,11 +6,15 @@
   - @users.each do |user|
     %ul
       - if user.username.nil?
-        %p= image_tag rest.image_url(:thumb)
-        %h4= link_to(user.username, user_path(user))
+        .col-md-4
+          %p= image_tag rest.image_url(:thumb)
+        .col-md-8
+          %h4= link_to(user.username, user_path(user))
       - else
-        %p= image_tag user.image_url(:thumb)
-        %h4= link_to(user.username, user_path(user))
+        .col-md-4
+          %p= image_tag user.image_url(:thumb)
+        .col-md-8
+          %h4= link_to(user.username, user_path(user))
 
         - if user.first_name.nil?
         - elsif user.last_name.nil?
@@ -20,7 +24,8 @@
 
         - if user.jobs.empty?
         - else
-          = user.jobs.first.job_title
-          - if user.jobs.first.restaurant.nil?
-          - else
-            = link_to user.jobs.first.restaurant.name, user.jobs.first.restaurant
+          .col-md-8
+            = user.jobs.first.job_title
+            - if user.jobs.first.restaurant.nil?
+            - else
+              = link_to user.jobs.first.restaurant.name, user.jobs.first.restaurant
