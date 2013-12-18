@@ -10,21 +10,23 @@ gem 'pg'
 # Added Gems
 gem 'haml-rails'
 gem 'devise'
-# gem 'carrierwave'
-# gem "fog", "~> 1.3.1"
+gem 'carrierwave'
+gem 'rmagick'
+gem "fog", "~> 1.3.1"
 # gem 'omniauth'
 # gem 'omniauth-google-oauth2'
 # gem 'omniauth-facebook'
-# gem 'cancan'
+gem 'cancan'
 # gem 'acts-as-taggable-on'
 # gem "select2-rails"
-# gem 'textacular', '~> 3.0'
-# gem 'rmagick'
+gem 'textacular', '~> 3.0'
 # gem 'thumbs_up'
 # gem 'koala'
-# gem 'will_paginate', '~> 3.0'
+gem 'will_paginate', '~> 3.0'
+# gem 'alphabetical_paginate' # bad gem
 # gem 'kaminari'
 gem 'factual-api'
+# paper trail - check it out!
 
 
 # Gems used only for assets and not required

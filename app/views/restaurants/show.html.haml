@@ -1,0 +1,52 @@
+%h4= @restaurant.name
+%p= image_tag @restaurant.image_url(:thumb)
+%p= @restaurant.address1
+%p= @restaurant.address2
+%p= @restaurant.town
+%p= @restaurant.postcode
+%p= @restaurant.cuisine
+%p= @restaurant.hygiene_rating
+
+- if can? :create, @review
+  Write a review:
+  = form_for(@review) do |f|
+
+    = hidden_field_tag :restaurant_id, @restaurant.id
+    = f.label :title
+    = f.text_field :title
+    %br/
+    = f.label :body
+    = f.text_area :body
+    %br/
+    = f.submit
+
+- @reviews.each do |review|
+  %h4
+    = review.title
+  %p
+    = review.body
+    %br/
+    - if review.user.nil?
+      written by unknown user
+    - else
+      written by
+      = link_to review.user.username, review.user
+    = time_ago_in_words(review.created_at) + " ago"
+  %p
+    - if review.user == current_user
+      = link_to "Edit Review", edit_review_path(review)
+      = link_to "Delete Review", review, method: :delete
+
+- @users.each do |user|
+  %ul
+    %li
+      %h4
+        = link_to user.username, user
+        %br/
+        = user.jobs.where(restaurant_id: @restaurant.id).first.job_title
+        (from
+        = user.jobs.where(restaurant_id: @restaurant.id).first.employed_from.strftime("%B %-d, %Y")
+        to
+        = user.jobs.where(restaurant_id: @restaurant.id).first.employed_to.strftime("%B %-d, %Y") + ")"
+
+= link_to "Back to Restaurants", "/restaurants"

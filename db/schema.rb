@@ -11,16 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131209162909) do
+ActiveRecord::Schema.define(:version => 20131216115420) do
 
   create_table "jobs", :force => true do |t|
     t.integer  "user_id"
     t.integer  "restaurant_id"
-    t.string   "employed_from"
-    t.string   "employed_to"
+    t.datetime "employed_from"
+    t.datetime "employed_to"
     t.string   "job_title"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.text     "job_description"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "restaurants", :force => true do |t|
@@ -28,14 +29,21 @@ ActiveRecord::Schema.define(:version => 20131209162909) do
     t.string   "address1"
     t.string   "address2"
     t.string   "town"
+    t.string   "towns"
     t.string   "postcode"
+    t.string   "norm_postcode"
     t.string   "phone"
     t.string   "cuisine"
     t.string   "email"
     t.string   "website"
-    t.string   "hygiene_rating"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.string   "image"
+    t.integer  "hygiene_rating"
+    t.date     "hygiene_rating_date"
+    t.decimal  "longitude"
+    t.decimal  "latitude"
+    t.string   "factual_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "reviews", :force => true do |t|
@@ -45,6 +53,27 @@ ActiveRecord::Schema.define(:version => 20131209162909) do
     t.string   "body"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+  end
+
+  create_table "unused_restaurants", :force => true do |t|
+    t.string   "name"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "town"
+    t.string   "towns"
+    t.string   "postcode"
+    t.string   "norm_postcode"
+    t.string   "phone"
+    t.string   "cuisine"
+    t.string   "email"
+    t.string   "website"
+    t.string   "image"
+    t.integer  "hygiene_rating"
+    t.date     "hygiene_rating_date"
+    t.decimal  "longitude"
+    t.decimal  "latitude"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -66,13 +95,8 @@ ActiveRecord::Schema.define(:version => 20131209162909) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email"
   end
 
-  add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
