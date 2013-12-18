@@ -164,5 +164,43 @@ module UserData
     # Daniel Doherty, duck and waffle
     # Jens Fölkel, previously at axis
 
+    # ANNA HANSEN, The Modern Pantry
+    # FERGUS HENDERSON, St John
+    # THEO RANDALL at the Intercontinental
+    # MARCUS WAREING at The Berkeley Hotel
+    # HESTON BLUMENTHAL, Dinner
+    # ANGELA HARTNETT, Murano
+    # NUNO MENDES, Viajante
+    # BRUNO LOUBET, Bistro Bruno Loubet
+    # OMAR ALLIBHOY, Tapas Revolution
+    # SAMANTHA AND SAMUEL CLARK, Moro and Morito
+
+    # OTTOLENGHI (287 Upper Street, N1; ottolenghi.co.uk)
+    # GALVIN LA CHAPELLE (35 Spital Square, E1)
+    # SWEETINGS: (39 Queen Victoria Street, EC4)
+    # JADE GARDEN: (15 Wardour Street, W1)
+    # ST JOHN BAR AND RESTAURANT (26 St John Street, EC1)
+    # LA PETITE MAISON (53-54 Brook’s Mews, W1)
+    # PRINCESS GARDEN OF MAYFAIR (8-10 North Audley Street, W1)
+    # MEDLAR (438 Kings Road, SW10)
+    # CHEZ BRUCE (2 Bellevue Road, SW17)
+    # RIVA (169 Church Road, SW13)
+    # THE RIVER CAFE (Thames Wharf, Rainville Road, W6)
+    # BRAWN (49 Columbia Road, E2)
+    # THE MODERN PANTRY (47-48 St. John’s Square, EC1V)
+    # KIKUCHI (14 Hanway Street, W1)
+    # YUM BUN (Broadway Market School Yard, Westgate Street, E8)
+    # ROCHELLE CANTEEN (Arnold Circus, E2)
+    # LEILA’S CAFE (17 Calvert Avenue, E2)
+    # ST JOHN BREAD AND WINE (94-96 Commercial Street, E1)
+    # SPUNTINO (61 Rupert Street, W1)
+    # BAR BOULUD (Mandarin Oriental Hyde Park, 66 Knightsbridge, SW1X)
+    # YALLA YALLA (1 Green’s Court, W1F)
+    # KHAN’S (13-15 Westbourne Grove, W2)
+    # LOCALE (222 Munster Road, SW6)
+    # BISTRO DE LUXE (66 Baker Street, W1)
+    # DOCK KITCHEN (Portobello Docks, 344-342 Ladbroke Grove, W10)
+    # SOMINE (131 Kingsland High Street, E8)
+
   end
 end
