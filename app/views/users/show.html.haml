@@ -1,25 +1,24 @@
 .container
   .row
-    - if @user.username.nil?
-      .col-md-4
-      .col-md-8
+    .col-md-4
+    .col-md-8.user
+      .col-md-6.user-img
         %p= image_tag @user.image_url(:thumb)
-    - else
-      .col-md-4
-      .col-md-8.user
-        .col-md-6.user-img
-          %p= image_tag @user.image_url(:thumb)
-        .col-md-6
+      .col-md-6
+        -if @user.username.empty?
+        -else
           %h4= @user.username
-          - if @user == current_user
-            = link_to "Edit Profile", edit_user_registration_path
-            = link_to "Change Password", "change_password"
 
-          - if @user.first_name.nil?
-          - elsif @user.last_name.nil?
-            %p= @user.first_name
-          - else
-            %p= @user.first_name + " " + @user.last_name
+        - if @user.first_name.nil?
+        - elsif @user.last_name.nil?
+          = @user.first_name
+        - else
+          = @user.first_name + " " + @user.last_name
+
+        - if @user == current_user
+          %p
+          = link_to "Edit Profile", edit_user_registration_path
+          = link_to "Change Password", "change_password"
 
   .row
     .col-md-4
@@ -45,7 +44,7 @@
           - else
             .job-description
               = job.job_description
-      - if @jobs.empty?
-        .link-see-others
-          = link_to "See others", "/users"
+
+      .link-see-others
+        = link_to "See others", "/users"
   %p

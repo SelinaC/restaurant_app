@@ -9,7 +9,7 @@ class UsersController < Devise::RegistrationsController
   def index
     # @users = User.all
     page = params[:page] || 1
-    per_page = 5
+    per_page = 6
 
     # users = []
     # all_users = User.all

@@ -1,11 +1,13 @@
-%h2 Search results
-%ul
-  - @search.each do |search_result|
-    %li
-      - case search_result
-        - when User
-          = link_to search_result.username, search_result
-        - when Restaurant
-          = link_to search_result.name, search_result
-        - when Job
-          = search_result.job_title
+.user-form
+  .search-results
+    %h2 Search results
+  %ul
+    - @search.each do |search_result|
+      .search-results-list
+        - case search_result
+          - when User
+            = link_to search_result.username, search_result
+          - when Restaurant
+            = link_to search_result.name, search_result
+          - when Job
+            = search_result.job_title
