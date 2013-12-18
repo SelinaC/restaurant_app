@@ -43,6 +43,25 @@ module FactualData
     @@name_match_35 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Galvin Bistrot De Luxe"}}]}).rows
     @@name_match_36 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Dock Kitchen"}}]}).rows
     @@name_match_37 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Somine Restaurant"}}]}).rows
+    @@name_match_38 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "The Ivy"}}]}).rows
+    @@name_match_39 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Hakkasan Mayfair"}}]}).rows
+    @@name_match_40 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "L'Escargot"}}]}).rows
+    @@name_match_41 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Duck and Waffle"}}]}).rows
+    @@name_match_42 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Axis Bar and Kitchen"}}]}).rows
+    @@name_match_43 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "One Aldwych"}}]}).rows
+    @@name_match_44 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Dinner by Heston Blumenthal"}}]}).rows
+    @@name_match_45 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "The Gun"}}]}).rows
+    @@name_match_46 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Murano"}}]}).rows
+    @@name_match_47 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Viajante"}}]}).rows
+    @@name_match_48 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Bistro Bruno Loubet"}}]}).rows
+    @@name_match_49 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Grain Store"}}]}).rows
+    @@name_match_50 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Tapas Revolution"}}]}).rows
+    @@name_match_51 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Moro"}}]}).rows
+    @@name_match_52 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Morito"}}]}).rows
+    @@name_match_53 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Caravan"}}]}).rows
+    # @@name_match_54 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => ""}}]}).rows
+    # @@name_match_55 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => ""}}]}).rows
+    # @@name_match_56 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => ""}}]}).rows
 
     # @@name_query_result << @@name_match_1
     # puts @@name_match_1.class
@@ -342,6 +361,125 @@ module FactualData
       end
     end
 
+    @@name_match_38.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_39.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_40.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_41.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_42.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_43.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_44.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_45.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_46.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_47.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_48.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_49.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_50.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_51.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_52.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_53.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    # @@name_match_54.each do |rest|
+    #   if not record_exists?(rest)
+    #     assign_attributes(rest)
+    #   end
+    # end
+
+    # @@name_match_55.each do |rest|
+    #   if not record_exists?(rest)
+    #     assign_attributes(rest)
+    #   end
+    # end
+
+    # @@name_match_56.each do |rest|
+    #   if not record_exists?(rest)
+    #     assign_attributes(rest)
+    #   end
+    # end
+
+    # @@name_match_57.each do |rest|
+    #   if not record_exists?(rest)
+    #     assign_attributes(rest)
+    #   end
+    # end
   end
 end
 
