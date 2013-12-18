@@ -186,6 +186,18 @@ nav.nav-bar {
 /** USER INDEX */
 
 .users {
+  border-bottom: ridge;
+}
+
+  padding-left: 2em;
+  padding-right: 2em;
+  margin-left: -10px;
+  margin-right: -10px;
+  height: 20em;
+  background: white;
+  width: 66%;
+
+
   padding: 1em 0;
   padding-bottom: 2em;
   margin-left: 2em;
@@ -193,8 +205,6 @@ nav.nav-bar {
   text-align: left;
   width: 20em;
   border-radius: 1px;
-}
-
 /*.restaurant-link a {
   margin-left: 30px;
   color: white;
