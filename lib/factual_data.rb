@@ -17,6 +17,33 @@ module FactualData
     @@name_match_9 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "The Chancery"}}]}).rows
     @@name_match_10 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "The Soho Hotel"}}]}).rows
     @@name_match_11 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "The Square"}}]}).rows
+    @@name_match_12 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Ottolenghi"}}]}).rows
+    @@name_match_13 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Galvin La Chapelle"}}]}).rows
+    @@name_match_14 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Sweetings"}}]}).rows
+    @@name_match_15 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "London Jade Garden"}}]}).rows
+    @@name_match_16 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "St. John Bar and Restaurant - Smithfield"}}]}).rows
+    @@name_match_17 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "La Petite Maison"}}]}).rows
+    @@name_match_18 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Princess Garden of Mayfair"}}]}).rows
+    @@name_match_19 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Medlar Restaurant"}}]}).rows
+    @@name_match_20 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Chez Bruce"}}]}).rows
+    @@name_match_21 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Riva"}}]}).rows
+    @@name_match_22 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "The River Cafe"}}]}).rows
+    @@name_match_23 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Brawn"}}]}).rows
+    @@name_match_24 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "The Modern Pantry"}}]}).rows
+    @@name_match_25 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Kikuchi"}}]}).rows
+    @@name_match_26 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Yum Bun"}}]}).rows
+    @@name_match_27 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Rochelle Canteen"}}]}).rows
+    @@name_match_28 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Leila's Shop"}}]}).rows
+    @@name_match_29 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "St. John Bread and Wine"}}]}).rows
+    @@name_match_30 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Spuntino"}}]}).rows
+    @@name_match_31 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Bar Boulud"}}]}).rows
+    @@name_match_32 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Yalla Yalla"}}]}).rows
+    @@name_match_33 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Khan's"}}]}).rows
+    @@name_match_34 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Locale Fulham"}}]}).rows
+    @@name_match_35 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Galvin Bistrot De Luxe"}}]}).rows
+    @@name_match_36 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Dock Kitchen"}}]}).rows
+    @@name_match_37 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Somine Restaurant"}}]}).rows
+
     # @@name_query_result << @@name_match_1
     # puts @@name_match_1.class
   end
@@ -158,6 +185,163 @@ module FactualData
         assign_attributes(rest)
       end
     end
+
+    @@name_match_12.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_13.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_14.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_15.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_16.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_17.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_18.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_19.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_20.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_21.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_22.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_23.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_24.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_25.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_26.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_27.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_28.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_29.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_30.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_31.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_32.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_33.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_34.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_35.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_36.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
+    @@name_match_37.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
+
   end
 end
 
