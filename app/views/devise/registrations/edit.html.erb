@@ -42,7 +42,7 @@
           <%= jobs_sub_form.date_select :employed_to, :order => [:day, :month, :year], :autofocus => true %><br />
 
           <%= jobs_sub_form.label :restaurant_id %>
-          <%= jobs_sub_form.select :restaurant_id, options_from_collection_for_select(Restaurant.all, 'id', 'name'), :prompt => true %><br />
+          <%= jobs_sub_form.select :restaurant_id, options_from_collection_for_select(Restaurant.order('name').all, 'id', 'name', jobs_sub_form.object.restaurant_id), :prompt => true %><br />
 
           <%= jobs_sub_form.hidden_field :id, :autofocus => true %><br />
         <% end %>
