@@ -71,6 +71,8 @@ module UserData
     user8.email = 'adam@adamjohnson.com'
     user8.password = "password"
     user8.role = "professional"
+    # <img alt="Thumb_adamjohnson"
+    # src="https://s3.amazonaws.com//uploads/user/image/8/thumb_adamjohnson.jpg">
     user8.save!
 
     user9 = User.new
