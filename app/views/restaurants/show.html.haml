@@ -67,9 +67,8 @@
             = link_to user.username, user
           = user.jobs.where(restaurant_id: @restaurant.id).first.job_title
           %br/
-          = "(" + user.jobs.where(restaurant_id: @restaurant.id).first.employed_from.strftime("%b, %Y")
-          to
-          = user.jobs.where(restaurant_id: @restaurant.id).first.employed_to.strftime("%b, %Y") + ")"
+          = "(" + user.jobs.where(restaurant_id: @restaurant.id).first.employed_from.strftime("%b %Y") + " - "
+          = user.jobs.where(restaurant_id: @restaurant.id).first.employed_to.strftime("%b %Y") + ")"
   %p
 
 
