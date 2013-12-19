@@ -1,14 +1,21 @@
-%p The Professionals
 
-= will_paginate @users
+
+
 
 .container
+  .row
+    .col-md-4
+    .col-md-8
+      .link-see-others
+        .upcase
+          %h4 The Professionals
+        = will_paginate @users
+      %p
   .row
     .col-md-4
     .col-md-8.row-block
       - @users.each do |user|
         .row.row-break
-
           - if user.username.nil?
             .col-md-6.user-img
               %p= image_tag user.image_url(:thumb)

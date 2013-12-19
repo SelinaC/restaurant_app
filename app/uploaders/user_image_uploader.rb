@@ -1,8 +1,12 @@
+require 'carrierwave/processing/mime_types'
 # encoding: utf-8
 
 class UserImageUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::RMagick
+  include CarrierWave::MimeTypes
+
+  process :set_content_type
 
   storage :fog
 
@@ -29,8 +33,10 @@ class UserImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
+  process :resize_to_fit => [800, 800]
+
   version :thumb do
-    process :scale => [10, 10]
+    process :resize_to_fill => [200, 200]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
@@ -44,5 +50,7 @@ class UserImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+
+
 
 end
