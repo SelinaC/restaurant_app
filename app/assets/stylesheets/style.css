@@ -220,6 +220,12 @@ textarea {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+.row-block-no-margin {
+  margin-left: -10px;
+  margin-right: -10px;
+  background: white;
+}
   /*padding-left: 2em;
   padding-right: 2em;
   margin-left: -10px;
