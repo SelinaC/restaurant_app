@@ -5,7 +5,7 @@
       .col-md-6.user-img
         %p= image_tag @user.image_url(:thumb)
       .col-md-6
-        -if @user.username.empty?
+        -if @user.username.nil?
         -else
           %h4= @user.username
 
