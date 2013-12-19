@@ -1,9 +1,14 @@
-%p Restaurants
-
-= will_paginate @restaurants
 / = @restaurants.count.to_s + " Restaurants"
 
 .container
+  .row
+    .col-md-4
+    .col-md-8
+      .link-see-others
+        .upcase
+          %h4 Restaurants
+        = will_paginate @restaurants
+      %p
   .row
     .col-md-4
     .col-md-8.row-block

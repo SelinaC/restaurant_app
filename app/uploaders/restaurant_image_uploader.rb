@@ -1,10 +1,13 @@
+require 'carrierwave/processing/mime_types'
 # encoding: utf-8
 
 class RestaurantImageUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::RMagick
+  include CarrierWave::MimeTypes
 
   storage :fog
+  process :set_content_type
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -29,8 +32,11 @@ class RestaurantImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
+
+  process :resize_to_fit => [900, 800]
+
   version :thumb do
-    process :scale => [10, 10]
+    process :resize_to_fill => [300, 200]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
@@ -44,5 +50,7 @@ class RestaurantImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+
+
 
 end
