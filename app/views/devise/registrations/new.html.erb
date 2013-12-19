@@ -16,6 +16,17 @@
     <div class="form-text-input"><%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation %></div>
 
+    <div class="form-text-input"><%= f.label :role %><br />
+    <%= f.select :role, ['professional', 'foodie'] %>
+
+    <!-- <select>
+        <option value='Professional'>Professional</option>
+        <option value='Foodie'>Foodie</option>
+      </select> -->
+    </div>
+
+
+
     <div class="submit-button"><%= f.submit "Join CookedUp" %></div>
   <% end %>
 

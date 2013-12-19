@@ -29,6 +29,9 @@ class User < ActiveRecord::Base
     super(params.delete(:current_password))
   end
 
+  validates :username, uniqueness: true
+  validates :username, presence: true
+
 end
 
 # role - allow mass assignment?
