@@ -5,7 +5,8 @@
     .col-md-4
     .col-md-8
       .link-see-others
-        %h4 Restaurants
+        .upcase
+          %h4 Restaurants
         = will_paginate @restaurants
       %p
   .row
@@ -24,8 +25,8 @@
             .img-fhrs
               %img{src: @fhrs_image}
             .hide
-              %p= rest.hygiene_rating
+              = rest.hygiene_rating
         .hide
-          %p= rest.id
+          = rest.id
 
   %p

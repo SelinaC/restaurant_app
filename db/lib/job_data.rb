@@ -16,7 +16,7 @@ module JobData
     job2.employed_from = "01-6-2004"
     job2.employed_to = "31-12-2013"
     job2.job_title = "Executive Chairman"
-    # job2.user_id = User.where(username: "").first.id
+    job2.user_id = User.where(username: "JohnWilliams").first.id
     # job2.restaurant_id = Restaurant.where(name: "").first.id
     job2.save!
     # The Academy of Culinary Arts
@@ -45,8 +45,8 @@ module JobData
     job5.employed_from = "01-06-2012"
     job5.employed_to = "31-12-2013"
     job5.job_title = "Executive Head Chef"
-    # job1.user_id =
-    # job1.restaurant_id =
+    job5.user_id = User.where(username: "JeremyBrown").first.id
+    # job5.restaurant_id =
     job5.save!
     # Home House
 
@@ -72,7 +72,7 @@ module JobData
     job8.employed_from = "01-01-1995"
     job8.employed_to = "31-12-2002"
     job8.job_title = "Head Chef"
-    # job1.user_id =
+    job8.user_id = User.where(username: "JeremyBrown").first.id
     # job1.restaurant_id =
     job8.save!
     # Marco Pierre White
@@ -92,7 +92,7 @@ module JobData
     job10.employed_to = "31-12-2013"
     job10.job_title = "Development Chef to Raymond Blanc"
     job10.user_id = User.where(username: "AdamJohnson").first.id
-    # job1.restaurant_id =
+    # job10.restaurant_id =
     job10.save!
     # Le Manoir aux Quat'Saisons
 
@@ -101,7 +101,7 @@ module JobData
     job11.employed_to = "30-09-2006"
     job11.job_title = "Demi Chef de Partie"
     job11.user_id = User.where(username: "AdamJohnson").first.id
-    # job1.restaurant_id =
+    # job11.restaurant_id =
     job11.save!
     # Le Manoir aux Quat'Saisons
 
@@ -110,7 +110,7 @@ module JobData
     job12.employed_to = "30-09-2005"
     job12.job_title = "Commis Chef"
     job12.user_id = User.where(username: "AdamJohnson").first.id
-    # job1.restaurant_id =
+    # job12.restaurant_id =
     job12.save!
     # Le Manoir aux Quat'Saisons
 
@@ -119,7 +119,7 @@ module JobData
     job13.employed_to = "31-03-2004"
     job13.job_title = "Chef de Partie"
     job13.user_id = User.where(username: "AdamJohnson").first.id
-    # job1.restaurant_id =
+    # job13.restaurant_id =
     job13.save!
     # Hundred House Hotel
 
@@ -351,6 +351,17 @@ module JobData
     # job36.restaurant_id = Restaurant.where(name: "The Square").first.id
     # job36.save!
     # The Horn of Plenty, Devon
+
+    job37 = Job.new
+    # job37.employed_from = ""
+    # job37.employed_to = ""
+    job37.job_title = "Owner"
+    # job37.job_description = ""
+    job37.user_id = User.where(username: "AnnaHansen").first.id
+    job37.restaurant_id = Restaurant.where(name: "The Modern Pantry").first.id
+    job37.save!
+
+
   end
 end
 

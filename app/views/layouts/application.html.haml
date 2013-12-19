@@ -17,7 +17,7 @@
             = form_tag searches_path do
               = label_tag :search
               = text_field_tag :query
-              %input#saveForm.search-button.submit{name: "saveForm", src: "/assets/search-button-without-text.svg", type: "image", width: 30}
+              %input.search-button.submit{name: "saveForm", src: "/assets/search-button-without-text.svg", type: "image", width: 30}
         .nav-links
           .nav-right
             - if user_signed_in?
@@ -27,11 +27,16 @@
               = link_to 'Sign up', new_user_registration_path
               = link_to 'Login', new_user_session_path
             %br
-          .browse
+      .nav2.nav-bar
+        .nav-links2
+          .nav-right2
             - if user_signed_in?
               = link_to "Browse Restaurants", restaurants_path
               = link_to "See the Professionals", users_path
               = link_to "Meet Other Foodies", "/users/foodies"
-      .nav-logo
-        = link_to image_tag("/assets/cookedup.png"), root_path
+      %nav.nav-logo
+        = link_to image_tag("/assets/cookedup3.png"), root_path
+
+
+
       \#{yield}

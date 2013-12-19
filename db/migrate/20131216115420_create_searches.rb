@@ -23,6 +23,9 @@ class CreateSearches < ActiveRecord::Migration
         UNION
         SELECT restaurants.id AS searchable_id, restaurants.postcode AS term, CAST ('Restaurant' AS varchar) AS searchable_type
         FROM restaurants
+        UNION
+        SELECT restaurants.id AS searchable_id, restaurants.cuisine AS term, CAST ('Restaurant' AS varchar) AS searchable_type
+        FROM restaurants
 
       SQL
   end

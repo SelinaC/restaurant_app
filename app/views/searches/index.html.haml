@@ -3,11 +3,30 @@
     %h2 Search results
   %ul
     - @search.each do |search_result|
-      .search-results-list
-        - case search_result
-          - when User
+      - case search_result
+        - when Job
+          - if search_result.user
+            .search-results-list
+              = search_result.user.username
+              %br/
+              = search_result.job_title
+              - if search_result.restaurant
+                = ", " + search_result.restaurant.name
+              %br/
+              = search_result.employed_from.strftime("%b %Y") + " - "
+              = search_result.employed_to.strftime("%b %Y")
+          - else
+            .hide
+              = search_result.job_title
+              - if search_result.restaurant
+                = ", " + search_result.restaurant.name
+              %br/
+              = search_result.employed_from.strftime("%b %Y") + " - "
+              = search_result.employed_to.strftime("%b %Y")
+        - when User
+          .search-results-list
             = link_to search_result.username, search_result
-          - when Restaurant
+        - when Restaurant
+          .search-results-list
             = link_to search_result.name, search_result
-          - when Job
-            = search_result.job_title
+
