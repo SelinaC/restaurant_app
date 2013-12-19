@@ -3,7 +3,7 @@
 body {
   font-family: 'Volkhov', serif;
   letter-spacing: 0.1em;
-  color: #424b51;
+  color: #433D36;
   font-weight: 400;
   font-size: 16px;
   background-color: #E5DFD7;
@@ -95,7 +95,7 @@ input.search-button.submit img {
 
 .nav-links2 a {
   margin-left: 6em;
-  color: #363e43;
+  color: #433D36;
   text-transform: uppercase;
   font-size: 1em;
   text-decoration: none;
@@ -149,7 +149,7 @@ input.search-button.submit img {
 }
 
 .link-back a{
-  color: #363e43;
+  color: #433D36;
 }
 
 /** SEARCH RESULTS */
@@ -164,7 +164,7 @@ input.search-button.submit img {
 
 .search-results-list a {
   size: 30;
-  color: #363e43;
+  color: #433D36;
   margin-left: -40px;
 }
 
@@ -220,7 +220,7 @@ input.search-button.submit img {
 }
 
 .link-see-others a{
-  color: #363e43;
+  color: #433D36;
 }
 /** USER INDEX */
 
@@ -229,7 +229,7 @@ input.search-button.submit img {
 }
 
 .row-break a{
-  color: #363e43;
+  color: #433D36;
 }
 
 .hide {

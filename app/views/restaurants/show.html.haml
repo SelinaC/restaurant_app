@@ -48,13 +48,15 @@
                 - if review.user.nil?
                   written by unknown user
                 - else
-                  written by
-                  = link_to review.user.username, review.user
-                = time_ago_in_words(review.created_at) + " ago"
+                  .link-back
+                    written by
+                    = link_to review.user.username, review.user
+                    = time_ago_in_words(review.created_at) + " ago"
               %p
                 - if review.user == current_user
-                  = link_to "Edit Review", edit_review_path(review)
-                  = link_to "Delete Review", review, method: :delete
+                  .link-back
+                    = link_to "Edit Review", edit_review_path(review)
+                    = link_to "Delete Review", review, method: :delete
         .link-see-others
           = link_to "Back to Restaurants", "/restaurants"
 
@@ -64,11 +66,12 @@
 
         - @users.each do |user|
           %h4
-            = link_to user.username, user
+            .link-back
+              = link_to user.username, user
           = user.jobs.where(restaurant_id: @restaurant.id).first.job_title
           %br/
-          = "(" + user.jobs.where(restaurant_id: @restaurant.id).first.employed_from.strftime("%b %Y") + " - "
-          = user.jobs.where(restaurant_id: @restaurant.id).first.employed_to.strftime("%b %Y") + ")"
+          = user.jobs.where(restaurant_id: @restaurant.id).first.employed_from.strftime("%b %Y") + " - "
+          = user.jobs.where(restaurant_id: @restaurant.id).first.employed_to.strftime("%b %Y")
   %p
 
 
