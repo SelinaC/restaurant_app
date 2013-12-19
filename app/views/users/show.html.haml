@@ -46,5 +46,8 @@
               = job.job_description
 
       .link-see-others
-        = link_to "See others", "/users"
+        - if @user.has_role?('professional')
+          = link_to "See others", "/users"
+        - elsif @user.has_role?('foodie')
+          = link_to "See other foodies", "/users/foodies"
   %p

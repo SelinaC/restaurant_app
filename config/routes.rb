@@ -9,6 +9,7 @@ RestaurantApp::Application.routes.draw do
       collection do
         get "change_password", to: "users#change_password"
         put "update_password", to: "users#update_password"
+        get "foodies", to: "users#foodies"
       end
     end
   end
@@ -19,7 +20,7 @@ RestaurantApp::Application.routes.draw do
   resources :reviews
   resources :jobs, only: [:new, :destroy, :create]
   resources :searches, only: [:create]
-
+  # resources :users, only: [:foodies]
 
   root :to => 'home#index'
   # The priority is based upon order of creation:

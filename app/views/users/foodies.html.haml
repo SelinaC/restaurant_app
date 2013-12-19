@@ -1,0 +1,39 @@
+
+.container
+  .row
+    .col-md-4
+    .col-md-8
+      .link-see-others
+        .upcase
+          %h4 Foodies
+        = will_paginate @users
+      %p
+  .row
+    .col-md-4
+    .col-md-8.row-block
+      - @users.each do |user|
+        .row.row-break
+          - if user.username.nil?
+            .col-md-6.user-img
+              %p= image_tag user.image_url(:thumb)
+            .col-md-6
+              %h4= link_to(user.username, user_path(user))
+          - else
+            .col-md-6.user-img
+              %p= image_tag user.image_url(:thumb)
+            .col-md-6
+              %h4= link_to(user.username, user_path(user))
+
+              - if user.first_name.nil?
+              - elsif user.last_name.nil?
+                %p= user.first_name
+              -else
+                %p= user.first_name + " " + user.last_name
+
+              - if user.jobs.empty?
+              - else
+                = user.jobs.first.job_title
+                - if user.jobs.first.restaurant.nil?
+                - else
+                  %p= link_to user.jobs.first.restaurant.name, user.jobs.first.restaurant
+  %p

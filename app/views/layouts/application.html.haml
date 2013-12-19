@@ -33,6 +33,7 @@
             - if user_signed_in?
               = link_to "Browse Restaurants", restaurants_path
               = link_to "See the Professionals", users_path
+              = link_to "Meet Other Foodies", "/users/foodies"
       .nav-logo
         = link_to image_tag("/assets/cookedup.png"), root_path
       \#{yield}

@@ -24,15 +24,13 @@
     <% end %>
 
     <div>
-      <% if resource.role == "foodie" %>
-      <% else %>
+      <% if resource.has_role?('professional') %>
         <%= link_to 'New Job', new_job_path %>
       <% end %>
     </div>
 
     <div>
-      <% if resource.role == "foodie" %>
-      <% else %>
+      <% if resource.has_role?("professional") %>
         <%= f.fields_for :jobs do |jobs_sub_form| %>
           <%= jobs_sub_form.label :job_title %>
           <%= jobs_sub_form.text_field :job_title, :autofocus => true %><br />
@@ -47,7 +45,6 @@
           <%= jobs_sub_form.select :restaurant_id, restaurants_for_select, :prompt => true %><br />
 
           <%= jobs_sub_form.hidden_field :id, :autofocus => true %><br />
-
         <% end %>
       <% end %>
     </div>

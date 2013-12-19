@@ -63,6 +63,13 @@ class UsersController < Devise::RegistrationsController
     redirect_to @user
   end
 
+  def foodies
+    page = params[:page] || 1
+    per_page = 6
+
+    @users = User.where(:role => "foodie").paginate(page: page, per_page: per_page).order('last_name')
+  end
+
 private
 
   def extract_job_params
