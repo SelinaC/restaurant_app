@@ -1,6 +1,6 @@
 class Restaurant < ActiveRecord::Base
 
-  attr_accessible :image
+  attr_accessible :image, :remote_image_url
 
   has_many :jobs
   has_many :users, through: :jobs

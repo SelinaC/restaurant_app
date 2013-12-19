@@ -165,14 +165,42 @@ module UserData
     user18.role = "professional"
     user18.save!
 
-    # user19 = User.new
-    # user19.username = "FergusH"
-    # user19.first_name = "Fergus"
-    # user19.last_name = "Henderson"
-    # user19.email = 'fergus@fergushenderson.com'
-    # user19.password = "password"
-    # user19.role = "professional"
-    # user19.save!
+    user19 = User.new
+    user19.username = "FergusH"
+    user19.first_name = "Fergus"
+    user19.last_name = "Henderson"
+    user19.email = 'fergus@fergushenderson.com'
+    user19.password = "password"
+    user19.role = "professional"
+    user19.save!
+
+    user20 = User.new
+    user20.username = "SamanthaC"
+    user20.first_name = "Samantha"
+    user20.last_name = "Clark"
+    user20.email = 'samantha@samanthaclark.com'
+    user20.password = "password"
+    user20.role = "professional"
+    user20.save!
+
+    user21 = User.new
+    user21.username = "Theo"
+    user21.first_name = "Theo"
+    user21.last_name = "Randall"
+    user21.email = 'theo@theorandall.com'
+    user21.password = "password"
+    user21.role = "professional"
+    user21.save!
+
+    user22 = User.new
+    user22.username = "Bruno"
+    user22.first_name = "Bruno"
+    user22.last_name = "Loubet"
+    user22.email = 'bruno@brunoloubet.com'
+    user22.password = "password"
+    user22.role = "professional"
+    user22.save!
+
 
     # Michael Davies, head sommelier, pearl
     # armand sablon
@@ -190,7 +218,7 @@ module UserData
     # NUNO MENDES, Viajante
     # BRUNO LOUBET, Bistro Bruno Loubet
     # OMAR ALLIBHOY, Tapas Revolution
-    # SAMANTHA AND SAMUEL CLARK, Moro and Morito
+    # SAMANTHA AND SAMUEL CLARK, Moro and Morito - reviewed
     # Sam Moody
 
   end

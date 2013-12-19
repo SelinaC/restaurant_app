@@ -59,7 +59,7 @@ module FactualData
     @@name_match_51 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Moro"}}]}).rows
     @@name_match_52 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Morito"}}]}).rows
     @@name_match_53 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "Caravan"}}]}).rows
-    # @@name_match_54 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => ""}}]}).rows
+    @@name_match_54 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => "The Providores"}}]}).rows
     # @@name_match_55 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => ""}}]}).rows
     # @@name_match_56 = factual.table("restaurants-gb").filters({"$and" => [{"locality" => {"$eq" => "LONDON"}}, {"name" => {"$eq" => ""}}]}).rows
 
@@ -457,11 +457,11 @@ module FactualData
       end
     end
 
-    # @@name_match_54.each do |rest|
-    #   if not record_exists?(rest)
-    #     assign_attributes(rest)
-    #   end
-    # end
+    @@name_match_54.each do |rest|
+      if not record_exists?(rest)
+        assign_attributes(rest)
+      end
+    end
 
     # @@name_match_55.each do |rest|
     #   if not record_exists?(rest)
