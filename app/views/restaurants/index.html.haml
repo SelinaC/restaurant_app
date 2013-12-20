@@ -26,7 +26,10 @@
               %img{src: @fhrs_image}
             .hide
               = rest.hygiene_rating
+            - if current_user.has_role?('admin')
+              = link_to("Edit", edit_restaurant_path(rest))
         .hide
           = rest.id
+
 
   %p

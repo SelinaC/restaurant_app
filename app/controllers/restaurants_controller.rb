@@ -34,7 +34,10 @@ before_filter :authenticate_user!, except: [:index, :show]
       else
         @fhrs_image = nil
     end
+  end
 
+  def edit
+    @restaurant = Restaurant.find params[:id]
   end
 
 end

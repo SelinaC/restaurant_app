@@ -1,0 +1,19 @@
+.user-form
+  .form-heading
+    %h2 Edit Restaurant
+
+  = @restaurant.name
+
+  = form_for(@restaurant) do |f|
+
+    .form-text-input
+      = f.label :image
+      %br/
+      = f.file_field :image, :autofocus => true
+    .form-text-input
+      = f.label :remote_image_url
+      %br/
+      = f.url_field :remote_image_url, :autofocus => true
+
+    .submit-button
+      = f.submit
