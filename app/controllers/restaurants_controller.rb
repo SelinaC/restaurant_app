@@ -40,4 +40,12 @@ before_filter :authenticate_user!, except: [:index, :show]
     @restaurant = Restaurant.find params[:id]
   end
 
+  def update
+    @restaurant = Restaurant.find params[:id]
+    if @restaurant.update_attributes params[:restaurant]
+    else
+      render action: "edit"
+    end
+    redirect_to @restaurant
+  end
 end
