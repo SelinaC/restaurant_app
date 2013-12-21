@@ -106,6 +106,63 @@ module FactualData
     new_rest.cuisine = rest['cuisine'].nil? ? "" : rest['cuisine'].to_s.scan(/(\w+)+/).flatten.join(" ")
     new_rest.factual_id = rest['factual_id']
     new_rest.save!
+
+    #attributes to add to table and assign:
+      # meal_dinner
+      # meal_breakfast
+      # meal_lunch
+
+      # meal_cater
+      # meal_deliver
+      # meal_takeout
+
+      # parking_free
+      # parking_valet
+      # parking
+      # parking_lot
+      # parking_street
+      # parking_garage
+
+      # hours
+
+      # options_organic
+      # options_vegan
+      # options_glutenfree
+      # options_vegetarian
+
+      # email
+      # seating_outdoor
+
+      # kids_goodfor
+      # groups_goodfor
+      # kids_menu
+      # accessible_wheelchair
+      # open_24hrs
+      # wifi
+
+      # attire_prohibited
+      # attire_required
+
+      # reservations
+      # payment_cashonly
+
+      # price
+
+      # alcohol_byob
+
+    # to get the days of the week a restaurant is open:
+    # ['hours'].to_s.scan(/\w+.":/)
+    # need to strip out the last character from each day
+
+    # to get the hours for each day the restaurant is open:
+
+    # to get days and hours in one array:
+    #.first['hours'].to_s.scan(/\w+...\w+/)
+    # need to loop through and present like tuesday: 10:00 - 12:00, 14:00 - 16:00
+
+    if a[0]=monday, collect times until value = tuesday or next day of opening
+      record the index of tuesday
+      collect times
   end
 
   def self.record_exists?(rest)
