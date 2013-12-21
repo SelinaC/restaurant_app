@@ -160,9 +160,9 @@ module FactualData
     #.first['hours'].to_s.scan(/\w+...\w+/)
     # need to loop through and present like tuesday: 10:00 - 12:00, 14:00 - 16:00
 
-    if a[0]=monday, collect times until value = tuesday or next day of opening
-      record the index of tuesday
-      collect times
+    # if a[0]=monday, collect times until value = tuesday or next day of opening
+    #   record the index of tuesday
+    #   collect times
   end
 
   def self.record_exists?(rest)

@@ -8,6 +8,7 @@ before_filter :authenticate_user!, except: [:index, :show]
     @review.user_id = current_user.id
     @review.title = params['review'][:title]
     @review.body = params['review'][:body]
+    @review.recommended_for = params['review']['recommended_for']
     if @review.save
       redirect_to @review.restaurant
     else

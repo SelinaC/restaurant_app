@@ -7,6 +7,7 @@ class CreateReviews < ActiveRecord::Migration
 
       t.string :title
       t.string :body
+      t.string :recommended_for
 
       t.timestamps
     end

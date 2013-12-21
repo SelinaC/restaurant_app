@@ -51,8 +51,9 @@ ActiveRecord::Schema.define(:version => 20131216115420) do
     t.integer  "restaurant_id"
     t.string   "title"
     t.string   "body"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.string   "recommended_for"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "unused_restaurants", :force => true do |t|
