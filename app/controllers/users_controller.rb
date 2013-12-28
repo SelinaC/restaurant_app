@@ -19,7 +19,27 @@ class UsersController < Devise::RegistrationsController
     #   end
     # end
 
-    @users = User.where(:role => "professional").paginate(page: page, per_page: per_page).order('last_name')
+    # users = User.arel_table
+    @all = User.where(:role => "professional")
+    # @nonull = User.where(users[:role].eq('professional').and(
+    #        users[:last_name].not_eq("")))
+    # @yesnull = User.where(users[:role].eq('professional').and(
+    #        users[:last_name].eq("")))
+    # @full_list = @nonull | @yesnull # does the same as +
+    # @users = @nonull+@yesnull
+
+
+    # @users = User.where(:role => 'professional', :last_name => "")
+    #   # :role => 'professional') unless :last_name.blank?
+    @users = @all.paginate(page: page, per_page: per_page).order('last_name asc')
+
+    # mysql:
+    # ORDER BY NULLIF(first_name, '') DESC NULLS LAST
+
+    # @yesnull = User.where("collection_id is null")
+    # @users = @nonull+@yesnull
+
+    # @users = User.where(:role => "professional").paginate(page: page, per_page: per_page).order('last_name ASC NULLS FIRST')
 
     # @users = WillPaginate::Collection.create(page, per_page, values.length) do |pager|
       # pager.replace values
