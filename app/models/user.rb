@@ -29,8 +29,7 @@ class User < ActiveRecord::Base
     super(params.delete(:current_password))
   end
 
-  validates :username, uniqueness: true
-  validates :username, presence: true
+  validates :username, presence: true, uniqueness: true
 
 end
 

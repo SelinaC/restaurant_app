@@ -49,10 +49,13 @@
               %p
                 = review.body
                 %br/
-              %p
-                Recommend it for:
-                = review.recommended_for
-                %br/
+                - if review.recommended_for.nil?
+                  .hide
+                - else
+                  %p
+                    Recommend it for:
+                    = review.recommended_for
+                  %br/
                 - if review.user.nil?
                   written by unknown user
                 - else
@@ -61,9 +64,10 @@
                     = link_to review.user.username, review.user
                     = time_ago_in_words(review.created_at) + " ago"
               %p
-                - if review.user == current_user
-                  .link-back
+                .link-back
+                  - if can? :update, review
                     = link_to "Edit Review", edit_review_path(review)
+                  - if can? :destroy, review
                     = link_to "Delete Review", review, method: :delete
         .link-see-others
           = link_to "Back to Restaurants", "/restaurants"

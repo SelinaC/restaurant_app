@@ -6,6 +6,8 @@ class UsersController < Devise::RegistrationsController
   before_filter :repair_nested_params
   before_filter :extract_job_params, only: [:create, :update, :destroy]
 
+  authorize_resource
+
   def index
     # @users = User.all
     page = params[:page] || 1

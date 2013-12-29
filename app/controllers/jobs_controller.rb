@@ -1,5 +1,6 @@
 class JobsController < ApplicationController
 
+authorize_resource
 before_filter :authenticate_user!, except: [:index, :show]
 
   def new
@@ -29,12 +30,12 @@ before_filter :authenticate_user!, except: [:index, :show]
   #   redirect_to user_path(@user)
   # end
 
-  # def destroy
-  #   binding.pry
-  #   job = Job.find params[:id]
-  #   job.delete
-  #   redirect_to user_path(current_user)
-  # end
+  def destroy
+    job = Job.find params[:id]
+    flash[:alert] = 'Are you sure?'
+    job.delete
+    redirect_to user_path(current_user)
+  end
 
 end
 

@@ -38,7 +38,7 @@
             = job.employed_to.strftime("%b %Y")
             %p
             - if @user == current_user
-              = link_to "Delete Job", "job#destroy"
+              = link_to "Delete Job", job, method: :delete
         .row
           - if job.job_description.nil?
           - else

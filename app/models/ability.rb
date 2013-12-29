@@ -9,35 +9,25 @@ class Ability
     if user.has_role? :admin
       can :manage, :all
 
+    # syntax for through relationship:
+    # can :read, Position, client: { user_id: user.id }
+
     elsif user.has_role? :professional
-
-      can :create, Job # see user update form
-      can :manage, Job do |job|
-        job.user == user
-      end
-      # see user update form
-      can :update, Job do |job|
-        job.user == user
-      end
-      can :destroy, Job do |job|
-        job.user == user
-      end
-
-      can :create, Review
-      can :manage, Review do |review|
-        review.user == user
-      end
-      # see restaurants show
-      can :update, Review do |review|
-        review.user == user
-      end
-      can :destroy, Review do |review|
-        review.user == user
-      end
 
       can :manage, User do |user_object|
         user_object == user
       end
+
+    #   cannot :update, Restaurant
+
+      can :create, Job # see user update form, renders jobs/new
+      can :destroy, Job, user_id: user.id
+      # job update is covered under manage user (nested form for update job)
+
+      can :create, Review
+      # see restaurants show
+      can :update, Review, user_id: user.id
+      can :destroy, Review, user_id: user.id
 
     else
       can :read, :all

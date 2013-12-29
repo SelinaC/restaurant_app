@@ -2,6 +2,8 @@ class ReviewsController < ApplicationController
 
 before_filter :authenticate_user!, except: [:index, :show]
 
+authorize_resource
+
   def create
     @review = Review.new
     @review.restaurant_id = params['restaurant_id']

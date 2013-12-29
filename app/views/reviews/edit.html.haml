@@ -1,15 +1,18 @@
-Edit Review - Under Construction
-
-%h3 Edit Review
-
-= form_for(@review) do |f|
-
-  %p
-    = f.label :title
-    %br/
-    = f.text_field :title
-  %p
-    = f.label :body
-    %br/
-    = f.text_area :body
-  = f.submit
+.user-form
+  .form-heading
+    %h2 Edit Review
+  = form_for(@review) do |f|
+    .form-text-input
+      = f.label :title
+      %br/
+      = f.text_field :title
+    .form-text-input
+      = f.label :body
+      %br/
+      = f.text_area :body
+    .form-text-input
+      = f.label :recommended_for
+      %br/
+      = f.select :recommended_for, ["wish I'd opened", "late night", "regular neighbourhood", "first date", "dinner with friends", "business dinner", "pop the question", "no frills, good grub"]
+    .submit-button
+      = f.submit
