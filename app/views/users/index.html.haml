@@ -1,11 +1,11 @@
-
-.container
-  .row
-    .col-md-4
-    .col-md-8
-      .link-see-others
-        .upcase
-          %h4 The Professionals
-        = will_paginate @users
-      %p
-  = render :partial => "test"
+- if user_signed_in?
+  .container
+    .row
+      .col-md-4
+      .col-md-8
+        .link-see-others
+          .upcase
+            %h4 The Professionals
+          = will_paginate @users
+        %p
+    = render :partial => "test"

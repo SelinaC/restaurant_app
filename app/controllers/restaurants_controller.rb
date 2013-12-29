@@ -1,6 +1,7 @@
 class RestaurantsController < ApplicationController
 
 before_filter :authenticate_user!, except: [:index, :show]
+authorize_resource
 
   def index
     page = params[:page] || 1

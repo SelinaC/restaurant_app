@@ -4,6 +4,5 @@ module RestaurantHelper
     Restaurant.all.collect { |r| [r.name, r.id] }
   end
 
-
 end
 
