@@ -54,6 +54,10 @@ class UsersController < Devise::RegistrationsController
   def show
     @user = User.find params[:id]
     @jobs = @user.jobs.order('employed_to DESC')
+
+    page = params[:page] || 1
+    per_page = 3
+    @reviews = @user.reviews.paginate(page: page, per_page: per_page)
   end
 
   def update

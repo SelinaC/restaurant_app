@@ -26,4 +26,12 @@
               - if user.jobs.first.restaurant.nil?
               - else
                 %p= link_to user.jobs.first.restaurant.name, user.jobs.first.restaurant
+
+            %p
+              - if user.reviews.count == 1
+                = user.reviews.count
+                review written
+              - else
+                = user.reviews.count
+                reviews written
 %p

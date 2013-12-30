@@ -1,54 +1,77 @@
 - if user_signed_in?
   .container
     .row
-      .col-md-4
-      .col-md-8.user
-        .col-md-6.user-img
-          %p= image_tag @user.image_url(:thumb)
-        .col-md-6
-          -if @user.username.nil?
-          -else
-            %h4= @user.username
-
-          - if @user.first_name.nil?
-          - elsif @user.last_name.nil?
-            = @user.first_name
-          - else
-            = @user.first_name + " " + @user.last_name
-
-          - if @user == current_user
-            %p
-            = link_to "Edit Profile", edit_user_registration_path
-            = link_to "Change Password", "change_password"
-
-    .row
-      .col-md-4
-      .col-md-8.row-block
-        - @jobs.each do |job|
-          .row.job-left
-            .col-md-6
-              %h4
-                = job.job_title
-                - if job.restaurant.nil?
-                - else
-                  %p
-                  = link_to job.restaurant.name, job.restaurant
-            .col-md-6.job-right
-              = job.employed_from.strftime("%b %Y")
-              = "-"
-              = job.employed_to.strftime("%b %Y")
-              %p
-              - if @user == current_user
-                = link_to "Delete Job", job, method: :delete, :confirm => "Are you sure you want to delete this job?"
+      .col-md-3
+      .col-md-9.row-block-no-margin
+        .col-md-9.col-break-right
           .row
-            - if job.job_description.nil?
-            - else
-              .job-description
-                = job.job_description
+            .col-md-6.user-img
+              %p= image_tag @user.image_url(:thumb)
+            .col-md-6
+              -if @user.username.nil?
+              -else
+                %h4= @user.username
 
-        .link-see-others
-          - if @user.has_role?('professional')
-            = link_to "See others", "/users"
-          - elsif @user.has_role?('foodie')
-            = link_to "See other foodies", "/users/foodies"
+              - if @user.first_name.nil?
+              - elsif @user.last_name.nil?
+                = @user.first_name
+              - else
+                = @user.first_name + " " + @user.last_name
+
+              - if @user == current_user
+                %p
+                = link_to "Edit Profile", edit_user_registration_path
+                = link_to "Change Password", "change_password"
+          .row
+            - @jobs.each do |job|
+              .row.job-left
+                .col-md-6
+                  %h4
+                    = job.job_title
+                    - if job.restaurant.nil?
+                    - else
+                      %p
+                      = link_to job.restaurant.name, job.restaurant
+                .col-md-6.job-right
+                  - if job.employed_from.nil?
+                  - else
+                    = job.employed_from.strftime("%b %Y")
+                    = "-"
+                    = job.employed_to.strftime("%b %Y")
+                  %p
+                  - if @user == current_user
+                    = link_to "Delete Job", job, method: :delete, :confirm => "Are you sure you want to delete this job?"
+              .row
+                - if job.job_description.nil?
+                - else
+                  .job-description
+                    = job.job_description
+
+          .link-see-others
+            - if @user.has_role?('professional')
+              = link_to "See others", "/users"
+            - elsif @user.has_role?('foodie')
+              = link_to "See other foodies", "/users/foodies"
+        .col-md-3
+          %p
+          = @reviews.count
+          - if @reviews.count == 1
+            review written
+          - else
+            reviews written
+          %p
+          .row
+            = will_paginate @reviews
+          %p
+          - @reviews.each do |review|
+            .row.review-row
+              = link_to review.restaurant.name, review.restaurant
+              %br/
+              = review.title
+              - if review.recommended_for.nil?
+                .hide
+              - else
+                Recommend it for:
+                = review.recommended_for
+
     %p

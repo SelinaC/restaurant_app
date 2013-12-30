@@ -213,6 +213,12 @@ input.search-button.submit img {
   margin-bottom: 1em;
 }
 
+.review-row {
+  padding-left: 15px;
+  margin-bottom: 1em;
+}
+
+
 .link-see-others{
   margin-top: 1em;
   margin-bottom: 1em;
@@ -222,6 +228,8 @@ input.search-button.submit img {
 .link-see-others a{
   color: #433D36;
 }
+
+
 /** USER INDEX */
 
 .row-break {
@@ -272,12 +280,18 @@ textarea {
 .col-break-right {
   border-right: ridge;
 }
+
+.col-break-left {
+  border-left: ridge;
+}
+
 .col-block-no-margin {
   margin-left: -10px;
   margin-right: -10px;
   background: white;
   height: 20em;
 }
+
 
 /** JUST TESTING */
 
