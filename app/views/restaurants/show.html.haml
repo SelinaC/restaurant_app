@@ -1,90 +1,89 @@
 - if user_signed_in?
-  .container
-    .row
-      .col-md-3
-      .col-md-9.row-block-no-margin
-        .col-md-9.col-break-right
-          .row
-            .col-md-6.user-img
-              %p= image_tag @restaurant.image_url(:thumb)
-            .col-md-6
-              %h4= @restaurant.name
-              %p= @restaurant.address1
-              %p= @restaurant.address2
-              %p= @restaurant.town
-              %p= @restaurant.postcode
-              %p= @restaurant.cuisine
-              .hide
-                %p= @restaurant.hygiene_rating
-              %img{src: @fhrs_image}
-              %p
-          .row
-            - if can? :create, @review
-              .review-form
-                .form-heading
-                  %h3
-                    Write a review:
-                = form_for(@review) do |f|
-
-                  = hidden_field_tag :restaurant_id, @restaurant.id
-                  .review-text-input
-                    = f.label :title
-                    %br/
-                    = f.text_field :title
-                    %br/
-                  .review-text-input
-                    = f.label :body
-                    %br/
-                    = f.text_area :body
-                  .review-text-input
-                    = f.label :recommended_for
-                    %br/
-                    = f.select :recommended_for, ["wish I'd opened", "late night", "regular neighbourhood", "first date", "dinner with friends", "business dinner", "pop the question", "no frills, good grub"]
-                  %br/
-                  = f.submit
-          .row
+  .row
+    .col-md-3
+    .col-md-9.row-block-no-margin
+      .col-md-9.col-break-right
+        .row
+          .col-md-6.user-img
+            %p= image_tag @restaurant.image_url(:thumb)
+          .col-md-6
+            %h4= @restaurant.name
+            %p= @restaurant.address1
+            %p= @restaurant.address2
+            %p= @restaurant.town
+            %p= @restaurant.postcode
+            %p= @restaurant.cuisine
+            .hide
+              %p= @restaurant.hygiene_rating
+            %img{src: @fhrs_image}
+            %p
+        .row
+          - if can? :create, @review
             .review-form
-              - @reviews.each do |review|
-                %h4
-                  = review.title
-                %p
-                  = review.body
+              .form-heading
+                %h3
+                  Write a review:
+              = form_for(@review) do |f|
+
+                = hidden_field_tag :restaurant_id, @restaurant.id
+                .review-text-input
+                  = f.label :title
                   %br/
-                  - if review.recommended_for.nil?
-                    .hide
-                  - else
-                    %p
-                      Recommend it for:
-                      = review.recommended_for
-                  - if review.user.nil?
-                    written by unknown user
-                  - else
-                    .link-back
-                      written by
-                      = link_to review.user.username, review.user
-                      = time_ago_in_words(review.created_at) + " ago"
-                %p
+                  = f.text_field :title
+                  %br/
+                .review-text-input
+                  = f.label :body
+                  %br/
+                  = f.text_area :body
+                .review-text-input
+                  = f.label :recommended_for
+                  %br/
+                  = f.select :recommended_for, ["wish I'd opened", "late night", "regular neighbourhood", "first date", "dinner with friends", "business dinner", "pop the question", "no frills, good grub"]
+                %br/
+                = f.submit
+        .row
+          .review-form
+            - @reviews.each do |review|
+              %h4
+                = review.title
+              %p
+                = review.body
+                %br/
+                - if review.recommended_for.nil?
+                  .hide
+                - else
+                  %p
+                    Recommend it for:
+                    = review.recommended_for
+                - if review.user.nil?
+                  written by unknown user
+                - else
                   .link-back
-                    - if can? :update, review
-                      = link_to "Edit Review", edit_review_path(review)
-                    - if can? :destroy, review
-                      = link_to "Delete Review", review, method: :delete, :confirm => "Are you sure you want to delete this review?"
-          .link-see-others
-            = link_to "Back to Restaurants", "/restaurants"
+                    written by
+                    = link_to review.user.username, review.user
+                    = time_ago_in_words(review.created_at) + " ago"
+              %p
+                .link-back
+                  - if can? :update, review
+                    = link_to "Edit Review", edit_review_path(review)
+                  - if can? :destroy, review
+                    = link_to "Delete Review", review, method: :delete, :confirm => "Are you sure you want to delete this review?"
+        .link-see-others
+          = link_to "Back to Restaurants", "/restaurants"
 
-        .col-md-3
-          %p
-          See who has worked here:
+      .col-md-3
+        %p
+        See who has worked here:
 
-          - @users.each do |user|
-            %h4
-              .link-back
-                = link_to user.username, user
-            = user.jobs.where(restaurant_id: @restaurant.id).first.job_title
-            %br/
-            = user.jobs.where(restaurant_id: @restaurant.id).first.employed_from.strftime("%b %Y") + " - "
-            = user.jobs.where(restaurant_id: @restaurant.id).first.employed_to.strftime("%b %Y")
-    %p
+        - @users.each do |user|
+          %h4
+            .link-back
+              = link_to user.username, user
+          = user.jobs.where(restaurant_id: @restaurant.id).first.job_title
+          %br/
+          = user.jobs.where(restaurant_id: @restaurant.id).first.employed_from.strftime("%b %Y") + " - "
+          = user.jobs.where(restaurant_id: @restaurant.id).first.employed_to.strftime("%b %Y")
+  %p
 
 
 

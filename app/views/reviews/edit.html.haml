@@ -1,26 +1,27 @@
 - if user_signed_in?
-  - if @review.user == current_user
+  .col-md-4
+  .col-md-8
     .user-form
-      .form-heading
-        %h2 Edit Review
-      written by
-      = @review.user.username
-      %p
-      = form_for(@review) do |f|
-        .form-text-input
-          = f.label :title
-          %br/
-          = f.text_field :title
-        .form-text-input
-          = f.label :body
-          %br/
-          = f.text_area :body
-        .form-text-input
-          = f.label :recommended_for
-          %br/
-          = f.select :recommended_for, ["wish I'd opened", "late night", "regular neighbourhood", "first date", "dinner with friends", "business dinner", "pop the question", "no frills, good grub"]
-        .submit-button
-          = f.submit
-  - else
-    .user-form
-      You are not authorized to edit this review.
+      - if @review.user == current_user
+        .form-heading
+          %h2 Edit Review
+        written by
+        = @review.user.username
+        %p
+        = form_for(@review) do |f|
+          .form-text-input
+            = f.label :title
+            %br/
+            = f.text_field :title
+          .form-text-input
+            = f.label :body
+            %br/
+            = f.text_area :body
+          .form-text-input
+            = f.label :recommended_for
+            %br/
+            = f.select :recommended_for, ["wish I'd opened", "late night", "regular neighbourhood", "first date", "dinner with friends", "business dinner", "pop the question", "no frills, good grub"]
+          .submit-button
+            = f.submit
+      - else
+        You are not authorized to edit this review.

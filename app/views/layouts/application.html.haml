@@ -34,9 +34,12 @@
               = link_to "Browse Restaurants", restaurants_path
               = link_to "See the Professionals", users_path
               = link_to "Meet Other Foodies", "/users/foodies"
+    .sidebar-content-area
+      = form_tag searches_path do
+        = label_tag :search
+        = text_field_tag :query
+        %input.search-button.submit{name: "saveForm", src: "/assets/search-button-without-text.svg", type: "image", width: 30}
       %nav.nav-logo
         = link_to image_tag("/assets/cookedup3.png"), root_path
-
-
-
-      \#{yield}
+      .container
+        \#{yield}

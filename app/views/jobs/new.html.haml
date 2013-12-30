@@ -1,29 +1,32 @@
-.user-form
-  .form-heading
-    %h2
-      Add a position
-  = form_for(@job) do |f|
-    .form-text-input
-      = f.label :job_title
+.col-md-4
+.col-md-8
+  .user-form
+    .form-heading
+      %h2
+        Add a position
+    = form_for(@job) do |f|
+      .form-text-input
+        = f.label :job_title
+        %br/
+        = f.text_field :job_title
       %br/
-      = f.text_field :job_title
-    %br/
-    .form-text-input
-      = f.label :job_description
-      %br/
-      = f.text_area :job_description
-    .form-text-input
-      = f.label :employed_from
-      %br/
-      = f.date_select :employed_from, :order => [:day, :month, :year]
-    .form-text-input
-      = f.label :employed_to
-      %br/
-      = f.date_select :employed_to, :order => [:day, :month, :year]
-    .form-text-input
-      = f.label :restaurant_id
-      %br/
-      = f.select :restaurant_id, restaurants_for_select, :prompt => true
-    .submit-button
-      = f.submit
+      .form-text-input
+        = f.label :job_description
+        %br/
+        = f.text_area :job_description
+      .form-text-input
+        = f.label :employed_from
+        %br/
+        = f.date_select :employed_from, :order => [:day, :month, :year]
+      .form-text-input
+        = f.label :employed_to
+        %br/
+        = f.date_select :employed_to, :order => [:day, :month, :year]
+      .form-text-input
+        = f.label :restaurant_id
+        %br/
+        = f.select :restaurant_id, restaurants_for_select, :prompt => true
+      .submit-button
+        = f.submit
+  %p
 

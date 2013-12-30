@@ -1,65 +1,69 @@
-<div class="user-form">
-  <div class="form-heading"><h2>Edit Profile</h2></div>
+<div class="col-md-4"></div>
+  <div class="col-md-8">
+  <div class="user-form">
+    <div class="form-heading"><h2>Edit Profile</h2></div>
 
-  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-    <%= devise_error_messages! %>
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+      <%= devise_error_messages! %>
 
-    <div class="form-text-input"><%= f.label :username %><br />
-    <%= f.text_field :username, :autofocus => true %></div>
+      <div class="form-text-input"><%= f.label :username %><br />
+      <%= f.text_field :username, :autofocus => true %></div>
 
-    <div class="form-text-input"><%= f.label :image %><br />
-    <%= f.file_field :image, :autofocus => true %></div>
+      <div class="form-text-input"><%= f.label :image %><br />
+      <%= f.file_field :image, :autofocus => true %></div>
 
-    <div class="form-text-input"><%= f.label :remote_image_url %><br />
-    <%= f.url_field :remote_image_url , :autofocus => true %></div>
+      <div class="form-text-input"><%= f.label :remote_image_url %><br />
+      <%= f.url_field :remote_image_url , :autofocus => true %></div>
 
-    <div class="form-text-input"><%= f.label :first_name %><br />
-    <%= f.text_field :first_name, :autofocus => true %></div>
+      <div class="form-text-input"><%= f.label :first_name %><br />
+      <%= f.text_field :first_name, :autofocus => true %></div>
 
-    <div class="form-text-input"><%= f.label :last_name %><br />
-    <%= f.text_field :last_name, :autofocus => true %></div>
+      <div class="form-text-input"><%= f.label :last_name %><br />
+      <%= f.text_field :last_name, :autofocus => true %></div>
 
-    <div class="form-text-input"><%= f.label :email %><br />
-    <%= f.email_field :email, :autofocus => true %></div>
+      <div class="form-text-input"><%= f.label :email %><br />
+      <%= f.email_field :email, :autofocus => true %></div>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="form-text-input">
+        <% if resource.has_role?('professional') %>
+          <%= link_to 'New Job', new_job_path %>
+        <% end %>
+      </div>
+
+      <div>
+        <% if resource.has_role?("professional") %>
+          <%= f.fields_for :jobs do |jobs_sub_form| %>
+            <div class="form-text-input"><%= jobs_sub_form.label :job_title %>
+            <%= jobs_sub_form.text_field :job_title, :autofocus => true %><br /></div>
+
+            <div class="form-text-input"><%= jobs_sub_form.label :employed_from %><br />
+            <%= jobs_sub_form.date_select :employed_from, :order => [:day, :month, :year], :autofocus => true %><br /></div>
+
+            <div class="form-text-input"><%= jobs_sub_form.label :employed_to %><br />
+            <%= jobs_sub_form.date_select :employed_to, :order => [:day, :month, :year], :autofocus => true %><br /></div>
+
+            <div class="form-text-input"><%= jobs_sub_form.label :restaurant_id %>
+            <%= jobs_sub_form.select :restaurant_id, options_from_collection_for_select(Restaurant.order('name').all, 'id', 'name', jobs_sub_form.object.restaurant_id), :prompt => true %><br /></div>
+
+            <%= jobs_sub_form.hidden_field :id, :autofocus => true %><br />
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="submit-button"><%= f.submit "Update" %></div>
+
     <% end %>
 
-    <div class="form-text-input">
-      <% if resource.has_role?('professional') %>
-        <%= link_to 'New Job', new_job_path %>
-      <% end %>
-    </div>
+    <div class="submit-button"><%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></div>
 
-    <div>
-      <% if resource.has_role?("professional") %>
-        <%= f.fields_for :jobs do |jobs_sub_form| %>
-          <div class="form-text-input"><%= jobs_sub_form.label :job_title %>
-          <%= jobs_sub_form.text_field :job_title, :autofocus => true %><br /></div>
-
-          <div class="form-text-input"><%= jobs_sub_form.label :employed_from %><br />
-          <%= jobs_sub_form.date_select :employed_from, :order => [:day, :month, :year], :autofocus => true %><br /></div>
-
-          <div class="form-text-input"><%= jobs_sub_form.label :employed_to %><br />
-          <%= jobs_sub_form.date_select :employed_to, :order => [:day, :month, :year], :autofocus => true %><br /></div>
-
-          <div class="form-text-input"><%= jobs_sub_form.label :restaurant_id %>
-          <%= jobs_sub_form.select :restaurant_id, options_from_collection_for_select(Restaurant.order('name').all, 'id', 'name', jobs_sub_form.object.restaurant_id), :prompt => true %><br /></div>
-
-          <%= jobs_sub_form.hidden_field :id, :autofocus => true %><br />
-        <% end %>
-      <% end %>
-    </div>
-
-    <div class="submit-button"><%= f.submit "Update" %></div>
-
-  <% end %>
-
-  <div class="submit-button"><%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></div>
-
-  <div class="link-back">
-  <%= link_to "Back", :back %></div>
+    <div class="link-back">
+    <%= link_to "Back", :back %></div>
+  </div>
+  <p></p>
 </div>
 
 
