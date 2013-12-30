@@ -78,12 +78,17 @@ nav.nav-bar {
   padding: 10px;
 }
 
-input.search-button.submit img {
-  /*content: &#x1f50d;*/
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  margin-top: 0.5em;
+input.search-button.submit {
+  margin-bottom: -9px;
+  padding-top: 0.5em;
 }
+
+/*input.search-button.submit img {*/
+  /*content: &#x1f50d;
+  /*background-repeat: no-repeat;*/
+  /*background-attachment: fixed;*/
+  /*margin-top: 0.5em;*/
+/*}*/
 
 /** NAVBAR2 */
 
