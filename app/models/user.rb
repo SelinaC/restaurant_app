@@ -51,7 +51,7 @@ class User < ActiveRecord::Base
       profile_set(auth, user)
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
-      user.skip_confirmation!
+      # user.skip_confirmation!
       user.save!
       authorization = Authorization.where(auth.slice(:provider, :uid)).first_or_create do |a|
         a.provider = auth.provider
@@ -67,9 +67,10 @@ class User < ActiveRecord::Base
       # user.authorization # add to user authorizations
       # user.provider = auth.provider
       # user.uid = auth.uid
+    user.username = auth.info.first_name + auth.info.last_name unless user.username?
     user.first_name = auth.info.first_name unless user.first_name?
     user.last_name = auth.info.last_name unless user.last_name?
-    user.role = "user" unless user.role?
+    user.role = "foodie" unless user.role?
     image_set(auth, user) unless user.image?
   end
 
