@@ -251,4 +251,8 @@ Devise.setup do |config|
   # When using omniauth, Devise cannot automatically set Omniauth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+
+  config.omniauth :google_oauth2, ENV["GOOGLE_ID_COOKEDUP"], ENV["GOOGLE_SECRET_COOKEDUP"]
+  config.omniauth :facebook, ENV["FACEBOOK_ID_COOKEDUP"], ENV["FACEBOOK_SECRET_COOKEDUP"], { :scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
+
 end

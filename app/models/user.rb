@@ -1,13 +1,17 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
-  # :lockable, :omniauthable, :confirmable,
+  # :lockable, :confirmable,
   devise :database_authenticatable,
          :registerable,
          :recoverable,
          :rememberable,
          :trackable,
          :validatable,
-         :timeoutable
+         :timeoutable,
+         :omniauthable,
+         {
+          :omniauth_providers => [:google_oauth2, :facebook]
+          }
 
   # Setup accessible (or protected) attributes for your model
 
@@ -16,6 +20,7 @@ class User < ActiveRecord::Base
   has_many :jobs, dependent: :destroy
   has_many :restaurants, through: :jobs
   has_many :reviews, dependent: :destroy
+  has_many :authorizations
 
   mount_uploader :image, UserImageUploader
 
@@ -30,6 +35,54 @@ class User < ActiveRecord::Base
   end
 
   validates :username, presence: true, uniqueness: true
+
+  def self.from_omniauth(auth)
+    # authorization = Authorization.where(:provider => auth.provider, :uid => auth.uid.to_s, :token => auth.credentials.token, :secret => auth.credentials.secret).first_or_initialize
+    if user = User.find_by_email(auth.info.email)
+      if authorization = user.authorizations.where(auth.slice(:provider, :uid)).count > 0
+        user
+      else
+        profile_set(auth, user)
+        user.authorizations.create! :provider => auth.provider, :uid => auth.uid
+        user
+      end
+    else
+      user = User.new
+      profile_set(auth, user)
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0, 20]
+      user.skip_confirmation!
+      user.save!
+      authorization = Authorization.where(auth.slice(:provider, :uid)).first_or_create do |a|
+        a.provider = auth.provider
+        a.uid = auth.uid
+        a.user = user
+        a
+      end
+      user
+    end
+  end
+
+  def self.profile_set(auth, user)
+      # user.authorization # add to user authorizations
+      # user.provider = auth.provider
+      # user.uid = auth.uid
+    user.first_name = auth.info.first_name unless user.first_name?
+    user.last_name = auth.info.last_name unless user.last_name?
+    user.role = "user" unless user.role?
+    image_set(auth, user) unless user.image?
+  end
+
+  def self.image_set(auth, user)
+    case auth.provider
+    when "facebook"
+      graph = Koala::Facebook::API.new(auth.credentials.token)
+      profile = "http://graph.facebook.com/" + graph.get_object("me")['username'] + "/picture?type=large"
+      user.remote_image_url = profile
+    when "google_oauth2"
+      user.remote_image_url = auth.info.image
+    end
+  end
 
 end
 
