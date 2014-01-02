@@ -254,5 +254,5 @@ Devise.setup do |config|
 
   config.omniauth :google_oauth2, ENV["GOOGLE_ID_COOKEDUP"], ENV["GOOGLE_SECRET_COOKEDUP"]
   config.omniauth :facebook, ENV["FACEBOOK_ID_COOKEDUP"], ENV["FACEBOOK_SECRET_COOKEDUP"], { :scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
-
+  config.omniauth :linkedin, ENV["LINKEDIN_KEY_COOKEDUP"], ENV["LINKEDIN_SECRET_COOKEDUP"], :scope => 'r_basicprofile r_fullprofile'
 end

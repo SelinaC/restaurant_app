@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
          :timeoutable,
          :omniauthable,
          {
-          :omniauth_providers => [:google_oauth2, :facebook]
+          :omniauth_providers => [:google_oauth2, :facebook, :linkedin]
           }
 
   # Setup accessible (or protected) attributes for your model
@@ -67,12 +67,19 @@ class User < ActiveRecord::Base
       # user.authorization # add to user authorizations
       # user.provider = auth.provider
       # user.uid = auth.uid
-    user.username = auth.info.first_name + auth.info.last_name unless user.username?
-    user.first_name = auth.info.first_name unless user.first_name?
-    user.last_name = auth.info.last_name unless user.last_name?
-    user.role = "foodie" unless user.role?
-    image_set(auth, user) unless user.image?
+    case auth.provider
+    when "linkedin"
+      user.username = auth.info.name
+    else
+      user.username = auth.info.first_name + auth.info.last_name unless user.username?
+      user.first_name = auth.info.first_name unless user.first_name?
+      user.last_name = auth.info.last_name unless user.last_name?
+      user.role = "foodie" unless user.role?
+      image_set(auth, user) unless user.image?
+    end
   end
+
+  # http://api.linkedin.com/v1/people/~
 
   def self.image_set(auth, user)
     case auth.provider
@@ -82,6 +89,8 @@ class User < ActiveRecord::Base
       user.remote_image_url = profile
     when "google_oauth2"
       user.remote_image_url = auth.info.image
+    when "linkedin"
+
     end
   end
 
