@@ -52,7 +52,7 @@ class User < ActiveRecord::Base
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
       # user.skip_confirmation!
-      user.save!
+      user.save! unless user.email.blank?
       authorization = Authorization.where(auth.slice(:provider, :uid)).first_or_create do |a|
         a.provider = auth.provider
         a.uid = auth.uid
@@ -69,14 +69,15 @@ class User < ActiveRecord::Base
       # user.uid = auth.uid
     case auth.provider
     when "linkedin"
-      user.username = auth.info.name
+      user.username = auth.info.name unless user.username?
     else
       user.username = auth.info.first_name + auth.info.last_name unless user.username?
-      user.first_name = auth.info.first_name unless user.first_name?
-      user.last_name = auth.info.last_name unless user.last_name?
-      user.role = "foodie" unless user.role?
-      image_set(auth, user) unless user.image?
     end
+
+    user.first_name = auth.info.first_name unless user.first_name?
+    user.last_name = auth.info.last_name unless user.last_name?
+    user.role = "foodie" unless user.role?
+    image_set(auth, user) unless user.image?
   end
 
   # http://api.linkedin.com/v1/people/~
@@ -90,11 +91,13 @@ class User < ActiveRecord::Base
     when "google_oauth2"
       user.remote_image_url = auth.info.image
     when "linkedin"
-
+      user.remote_image_url = auth.info.image
     end
   end
 
 end
+
+
 
 # role - allow mass assignment?
 
