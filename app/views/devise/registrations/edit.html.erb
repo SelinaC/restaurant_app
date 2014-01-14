@@ -24,6 +24,9 @@
       <div class="form-text-input"><%= f.label :email %><br />
       <%= f.email_field :email, :autofocus => true %></div>
 
+      <div class="form-text-input"><%= f.label :role %><br />
+      <%= f.select :role, ['professional', 'foodie'] %></div>
+
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>

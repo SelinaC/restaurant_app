@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   has_many :jobs, dependent: :destroy
   has_many :restaurants, through: :jobs
   has_many :reviews, dependent: :destroy
-  has_many :authorizations
+  has_many :authorizations, dependent: :destroy
 
   mount_uploader :image, UserImageUploader
 

@@ -22,8 +22,8 @@
   <% end -%>
 
   <%- if devise_mapping.omniauthable? %>
-    <%= link_to image_tag("/assets/sign-in-with-google.png"), omniauth_authorize_path(resource_name, "google_oauth2") %><br />
-    <%= link_to image_tag("/assets/facebook_login_buttons/pressed_200.png"), omniauth_authorize_path(resource_name, "linkedin") %><br />
+    <%= link_to image_tag("/assets/login_google.png", :size => "149x20"), omniauth_authorize_path(resource_name, "google_oauth2") %><br />
+    <%= link_to image_tag("/assets/login_linkedin.png"), omniauth_authorize_path(resource_name, "linkedin") %><br />
     <!-- <%= link_to image_tag("/assets/facebook_login_buttons/pressed_200.png"), omniauth_authorize_path(resource_name, "facebook") %><br /> -->
   <% end -%>
 
