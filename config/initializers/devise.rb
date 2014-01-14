@@ -252,7 +252,7 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
-  config.omniauth :google_oauth2, ENV["GOOGLE_ID_COOKEDUP_HEROKU"], ENV["GOOGLE_SECRET_COOKEDUP_HEROKU"]
+  config.omniauth :google_oauth2, ENV["GOOGLE_ID_COOKEDUP_HEROKU"], ENV["GOOGLE_SECRET_COOKEDUP_HEROKU"], { scope: 'userinfo.email,userinfo.profile,https://www.google.com/m8/feeds', access_type: 'offline', approval_prompt: '', client_options: {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}} }
   config.omniauth :facebook, ENV["FACEBOOK_ID_COOKEDUP"], ENV["FACEBOOK_SECRET_COOKEDUP"], { :scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}}
   config.omniauth :linkedin, ENV["LINKEDIN_KEY_COOKEDUP"], ENV["LINKEDIN_SECRET_COOKEDUP"], :scope => 'r_basicprofile r_fullprofile'
 end
