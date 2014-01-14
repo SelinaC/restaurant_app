@@ -11,7 +11,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       flash.notice = "Signed in!"
       sign_in_and_redirect user
     else
-      binding.pry
+      # binding.pry
       # session[:omniauth] = omniauth.except('extra')
       session["devise.user_attributes"] = user.attributes #flash.notice = "Almost done, please provide password to complete registration"
       redirect_to new_user_registration_url
